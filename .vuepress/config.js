@@ -62,6 +62,7 @@ module.exports = {
       ]
     },
     "type": "blog",
+    "subSidebar": "auto",
     "blogConfig": {
       "category": {
         "location": 2,
