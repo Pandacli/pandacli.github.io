@@ -1,0 +1,14 @@
+{
+  "name": "AI-Test",
+  "version": "1.0.0",
+  "author": "reco_luan",
+  "scripts": {
+    "dev": "vuepress dev . --host localhost --no-open",
+    "build": "vuepress build ."
+  },
+  "devDependencies": {
+    "vuepress": "1.9.7",
+    "vuepress-theme-reco": "1.6.17"
+  },
+  "description": ""
+}
