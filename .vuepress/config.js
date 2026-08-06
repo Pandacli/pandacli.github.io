@@ -97,6 +97,10 @@ module.exports = {
     "startYear": "2017"
   },
   "markdown": {
-    "lineNumbers": true
+    "lineNumbers": true,
+    "extractHeaders": ["h1", "h2", "h3"],
+    "toc": {
+      "includeLevel": [1, 2, 3]
+    }
   }
 }
