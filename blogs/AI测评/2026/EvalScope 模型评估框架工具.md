@@ -2,12 +2,12 @@
 title: EvalScope 模型评估框架工具
 date: 2026-06-02
 tags:
- - tag2
+- 测评框架
 categories:
  - AI测评
 ---
 
-## 前言
+# 前言
 
 EvalScope 是一个为大模型设计的评测框架，旨在提供简单易用、功能全面的评测流程。本指南将引导您完成从简单到复杂的各类评测任务，帮助您快速上手。
 
@@ -77,8 +77,21 @@ pip install -e .
 
 3. 安装额外依赖（可选）
 
-![...](./images/EvalScope_003.png)
 
+- 推理性能压测
+ > pip install '.[pref]'
+- 可视化服务
+  > pip install '.[service]'
+- AIGC评测
+  > pip install '.[aigc]'
+- OpenCompass后端
+  > pip install '.[compass]'
+- VLMEvalKit后端
+  > pip install '.[vlmeval]'
+- RAG评测
+  > pip install '.[rag]'
+- 全部安装
+  > pip install '.[all]'
 ## 2. 快速上手
 
 ### 2.1 使用命令行评估
@@ -101,7 +114,7 @@ evalscope eval --model /path/to/your/model --datasets gsm8k arc --limit 5
 
 ![...](./images/EvalScope_004.png)
 
-### 2.2 使用 Python 代码
+### 2.2 使用 Python 脚本代码
 
 通过调用 `run_task` 函数并传入 `TaskConfig` 配置，可以在 Python 环境中运行评测。配置可以是：
 
@@ -163,5 +176,6 @@ pip install 'evalscope[service]'
 evalscope service
 
 # 服务启动后，访问 http://127.0.0.1:9000 即可打开可视化界面。
+
 # 详情参考：https://evalscope.readthedocs.io/zh-cn/latest/get_started/visualization.html
 ```

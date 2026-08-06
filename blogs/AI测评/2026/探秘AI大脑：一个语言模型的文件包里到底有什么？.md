@@ -1,3 +1,13 @@
+---
+title: 一个语言模型的文件包里到底有什么
+date: 2026-08-05
+tags:
+ - AI模型
+categories:
+ - AI测评
+---
+
+
 # 探秘AI大脑：一个语言模型的文件包里到底有什么？
 
 
@@ -6,6 +16,10 @@
 
 当你和ChatGPT、Claude这样的AI聊天时，它的大脑——也就是那个巨大的“模型文件”。—> 在电脑里长什么样？我们就用一个真实的模型文件夹为例，像拆开一个神奇的锦囊一样，看看里面那些文件都藏着什么秘密。
 - `Qwen 2.5B 大模型` 文件结构参考图
+
+## 模型介绍 
+- [Deepseek Qwen 7B 大模型介绍](https://www.modelscope.cn/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/summary)
+- [Qwen 2.5B 大模型介绍](https://www.modelscope.cn/models/Qwen/Qwen2.5-1.5B-Instruct)
 ![image\.png](./images/ai-brain_1.png)
 
 # 1 先看“身份证”和“说明书”

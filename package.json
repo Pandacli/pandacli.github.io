@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "author": "reco_luan",
   "scripts": {
-    "dev": "vuepress dev . --host localhost --no-open",
+    "dev": "npm run ensure-temp && vuepress dev . --host localhost --no-open",
+    "ensure-temp": "[ -f node_modules/@vuepress/core/.temp/internal/routes.js ] || npm run build",
     "build": "vuepress build ."
   },
   "devDependencies": {
