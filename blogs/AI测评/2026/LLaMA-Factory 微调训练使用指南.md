@@ -153,7 +153,7 @@ git clone https://www.modelscope.cn/deepseek-ai/deepseek-llm-7b-chat.git
 
 由于网络环境等原因，文件下载后往往会存在文件不完整的很多情况，下载后需要先做一下校验，校验分为两部分，第一先检查一下文件大小和文件数量是否正确，和原始的huggingface显示的做一下肉眼对比。
 
-[探秘AI大脑：一个语言模型的文件包里到底有什么？](https://my.feishu.cn/wiki/LmUgwQEWdisKYHkehaScmJMjnKb?from=from_copylink)
+[探秘AI大脑：一个语言模型的文件包里到底有什么？](./探秘AI大脑：一个语言模型的文件包里到底有什么？.md)
 
 ![...](./images/LLaMA-Factory-guide-006.png)
 
@@ -225,7 +225,7 @@ CUDA_VISIBLE_DEVICES=0 是指定了当前程序使用第0张卡，是指定全�
 
 ![...](./images/LLaMA-Factory-guide-008.png)
 
-> 本次及后续所有的程序的入口都是 llamafactory-cli，通过不同的参数控制现在是实现什么功能，所有的可选项包括
+> 本次及后续所有的程序的入口都是 llamafactory-cli，通过不同的参数控制实现什么功能，所有的可选项包括
 
 ![...](./images/LLaMA-Factory-guide-009.jpeg)
 
