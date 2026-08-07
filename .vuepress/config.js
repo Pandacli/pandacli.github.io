@@ -21,7 +21,7 @@ module.exports = {
         { "text": "基础理论", "link": "/docs/basic/" },
         { "text": "训练实战", "link": "/docs/practice/" }
       ]},
-
+      {"text":"skills商店","link":"/docs/skills/"},
       { "text": "关于", "link": "/about.html", "icon": "reco-account" }
     ],
 
@@ -29,7 +29,7 @@ module.exports = {
     "subSidebar": "auto",
 
     "blogConfig": {
-      "category": { "location": 2, "text": "文章" },
+      "category": { "location": 2, "text": "AI工具库" },
       //"tag": { "location": 3, "text": "标签" }
     },
 
