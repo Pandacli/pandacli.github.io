@@ -1,0 +1,7 @@
+// 文章顶部的目录默认折叠（需要点击"此页内容"才展开），
+// 这里让它默认展开，直接显示目录列表。
+.vp-toc-wrapper {
+  height: auto;
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
