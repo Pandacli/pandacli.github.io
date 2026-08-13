@@ -1,13 +1,5 @@
-node_modules/
-.git/
-.github/
-.hermes/
-.husky/
-.vuepress/.temp/
-.vuepress/.cache/
-*.md
-!README.md
+.git
 .gitignore
-.editorconfig
-.eslintrc*
-.prettier*
+node_modules
+src/.vuepress/.cache
+src/.vuepress/.temp
