@@ -1,5 +1,13 @@
-.git
+node_modules/
+.git/
+.github/
+.hermes/
+.husky/
+src/.vuepress/.temp/
+src/.vuepress/.cache/
+*.md
+!README.md
 .gitignore
-node_modules
-src/.vuepress/.cache
-src/.vuepress/.temp
+.editorconfig
+.eslintrc*
+.prettier*
