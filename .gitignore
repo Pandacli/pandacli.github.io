@@ -19,7 +19,6 @@ traversal-folder-replace-string.py
 format-markdown.py
 
 .npmrc
-package-lock.json
 lintmd-config.json
 .claude/settings.local.json
 /.obsidian

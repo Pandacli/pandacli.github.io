@@ -63,11 +63,11 @@ nvidia-smi
 
 > 7B 大概需要显示8G，可以通过 nvidia-smi 查看 占用情况。如果GPU memory 内存不足，那只能使用小型的 模型
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-001.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-001.png)
 
 那多大的模型用什么训练方式需要多大的GPU呢，可参考 [https://github.com/hiyouga/LLaMA-Factory?tab=readme-ov-file#hardware-requirement](https://github.com/hiyouga/LLaMA-Factory?tab=readme-ov-file#hardware-requirement)
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-002.jpeg)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-002.jpeg)
 
 ## **1.2 CUDA和PyTorch环境校验**
 
@@ -105,7 +105,7 @@ print(torch.__version__)
 
 预期输出如图
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-003.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-003.png)
 
 如果识别不到可用的GPU，则说明环境准备还有问题，需要先进行处理，才能往后进行。
 
@@ -127,7 +127,7 @@ https://github.com/AlexsJones/llmfit/blob/main/README.zh.md
 
 根据GPU  来选择合适自己电脑的学习模型。
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-004.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-004.png)
 
 ### 1.3.2 **模型下载**
 
@@ -150,13 +150,13 @@ git clone https://www.modelscope.cn/deepseek-ai/deepseek-llm-7b-chat.git
 
 或者
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-005.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-005.png)
 
 由于网络环境等原因，文件下载后往往会存在文件不完整的很多情况，下载后需要先做一下校验，校验分为两部分，第一先检查一下文件大小和文件数量是否正确，和原始的huggingface显示的做一下肉眼对比。
 
 [探秘AI大脑：一个语言模型的文件包里到底有什么？](../basic/machine-learning/探秘AI大脑：一个语言模型的文件包里到底有什么？.md)
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-006.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-006.png)
 
 ### 1.3.3 **验证模型可用性**
 
@@ -199,7 +199,7 @@ response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
 加载模型文件成功
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-007.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-007.png)
 
 # 2 **原始模型加载后测试-推理能力**
 
@@ -224,15 +224,15 @@ llamafactory-cli webchat \
 
 CUDA_VISIBLE_DEVICES=0 是指定了当前程序使用第0张卡，是指定全局变量的作用, 也可以不使用
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-008.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-008.png)
 
 > 本次及后续所有的程序的入口都是 llamafactory-cli，通过不同的参数控制实现什么功能，所有的可选项包括
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-009.jpeg)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-009.jpeg)
 
 另外两个关键参数解释如下，后续的基本所有环节都会继续使用这两个参数
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-010.jpeg)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-010.jpeg)
 
 
 ## 2.2 **使用yaml 存放参数**
@@ -265,7 +265,7 @@ llamafactory-cli webchat \
 
 - 系统自带的identity数据集
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-011.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-011.png)
 
 > 更多详情可以在 [https://github.com/hiyouga/LLaMA-Factory/blob/main/data/README_zh.md](https://github.com/hiyouga/LLaMA-Factory/blob/main/data/README_zh.md) 中找到相关解释。
 
@@ -383,7 +383,7 @@ sed -i 's/{{author}}/LLaMA Factory/g'  data/identity.json
 - 指定了数据集具体文件位置
 - 定义了原数据集的输入输出和我们所需要的格式之间的映射关系
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-012.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-012.png)
 
 # 4 **开始微调训练 - 基于LoRA的SFT指令**
 
@@ -438,7 +438,7 @@ llamafactory-cli train -h
 
 这里对部分关键的参数做解释，model_name_or_path 和template 上文已解释
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-013.jpeg)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-013.jpeg)
 
 **点击图片可查看完整电子表格**
 
@@ -449,11 +449,11 @@ llamafactory-cli train -h
 - 当前loss
 - 训练进度
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-014.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-014.png)
 
 训练完后就可以在设置的output_dir看到如下内容，主要包含3部分
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-015.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-015.png)
 
 1. adapter开头的就是 LoRA保存的结果了，后续用于模型推理融合
 2. training_loss 和trainer_log等记录了训练的过程指标
@@ -484,7 +484,7 @@ llamafactory-cli webchat \
 
 效果如下，可以看到，模型整个已经在学习了新的数据知识，学习了新的身份认知。
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-016.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-016.png)
 
 ## 5.2 **校验 新模型 - terminal 窗口化启动**
 
@@ -498,7 +498,7 @@ CUDA_VISIBLE_DEVICES=0 llamafactory-cli chat \
     --finetuning_type lora
 ```
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-017.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-017.png)
 
 # 6 **批量预测 新模型的 predict训练效果和评估**
 
@@ -542,13 +542,13 @@ llamafactory-cli train \
 
 与训练脚本主要的参数区别如下两个
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-018.jpeg)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-018.jpeg)
 
 **点击图片可查看完整电子表格**
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-019.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-019.png)
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-020.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-020.png)
 
 最后会在output_dir下看到如下内容
 
@@ -577,7 +577,7 @@ llamafactory-cli train \
 
 这里给相关的指标做一下进一步的解释
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-021.jpeg)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-021.jpeg)
 
 **点击图片可查看完整电子表格**
 
@@ -589,7 +589,7 @@ llamafactory-cli train \
 
 本脚本参数改编自 [LLaMA-Factory/examples/merge_lora/llama3_lora_sft.yaml at main · hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory/blob/main/examples/merge_lora/llama3_lora_sft.yaml)
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-022.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-022.png)
 
 ```text
 CUDA_VISIBLE_DEVICES=0 llamafactory-cli export \
@@ -603,7 +603,7 @@ CUDA_VISIBLE_DEVICES=0 llamafactory-cli export \
     --export_legacy_format False
 ```
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-023.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-023.png)
 
 # 8 **一站式webui board的使用**
 
@@ -625,19 +625,19 @@ CUDA_VISIBLE_DEVICES=0 GRADIO_SHARE=1 GRADIO_SERVER_PORT=7860 llamafactory-cli w
 
 如图所示，上述的多个不同的大功能模块都通过不同的tab进行了整合，提供了一站式的操作体验。
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-024.jpeg)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-024.jpeg)
 
 当各种参数配置好后，在train页面，可以通过预览命令功能，将训练脚本导出，用于支持多gpu训练
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-025.jpeg)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-025.jpeg)
 
 点击开始按钮, 即可开始训练，网页端和服务器端会同步输出相关的日志结果
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-026.jpeg)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-026.jpeg)
 
 训练完毕后, 点击“刷新适配器”，即可找到该模型历史上使用webui训练的LoRA模型文件，后续再训练或者执行chat的时候，即会将此LoRA一起加载。
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-027.jpeg)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-027.jpeg)
 
 # 9 **API Server的启动与调用**
 
@@ -701,7 +701,7 @@ if __name__ == '__main__':
 
 本脚本改编自 [https://github.com/hiyouga/LLaMA-Factory/blob/main/examples/train_lora/llama3_lora_eval.yaml](https://github.com/hiyouga/LLaMA-Factory/blob/main/examples/train_lora/llama3_lora_eval.yaml)
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-028.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-028.png)
 
 - eval 测评
 
@@ -779,7 +779,7 @@ pip install --editable .
 
 - 查找convert_hf_to_gguf.py
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-029.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-029.png)
 
 - 启动转换
 
@@ -790,13 +790,13 @@ python convert_hf_to_gguf.py /media/tommy/win_documents/code/ai_source/LlamaFact
 
 - 转换中
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-030.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-030.png)
 
 - 转换成功。
 
 可在 megred-model-path 新模型的路径下查看gguf文件
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-031.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-031.png)
 
 ## 11.4 **Ollama安装**
 
@@ -812,7 +812,7 @@ Ollama 对于要部署的模型需要提前完成本地的配置和注册, 和 D
 
 - 备份旧的Modefile 为 Modefile.bak
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-032.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-032.png)
 
 - 创建一个 Modelfile 文件
 
@@ -854,7 +854,7 @@ PARAMETER num_ctx 4096
 ollama create tommy_qwen2.5 -f ./Modelfile
 ```
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-033.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-033.png)
 
 ## 11.6 **启动Ollama**
 
@@ -864,7 +864,7 @@ ollama create tommy_qwen2.5 -f ./Modelfile
 ollama run tommy_qwen2.5
 ```
 
-![...](../assets/pictures/llama-factory/LLaMA-Factory-guide-034.png)
+![...](/assets/images/llama-factory/LLaMA-Factory-guide-034.png)
 
 启动后即可通过交互式完成问答，输入 */bye* 即可退出
 

@@ -122,53 +122,53 @@ git clone https://github.com/llm-factory/FinancialData-SecondQuarter-2024.git
 
 1. 在浏览器进入 Easy Dataset 主页后，点击**创建项目**
 
-![image.png](../assets/pictures/easy-dataset/image1.png)
+![image.png](/assets/images/easy-dataset/image1.png)
 
 2. 首先填写**项目名称**（必填），其他两项可留空，点击确认**创建项目**
 
-![image.png](../assets/pictures/easy-dataset/image2.png)
+![image.png](/assets/images/easy-dataset/image2.png)
 
 3. 项目创建后会跳转到**项目设置**页面，打开**模型配置**，选择数据生成时需要调用的大模型 API 接口
 
-![image.png](../assets/pictures/easy-dataset/image3.png)
+![image.png](/assets/images/easy-dataset/image3.png)
 
 4. 这里以 DeepSeek 模型为例，修改模型**提供商**和**模型名称**，填写 **API 密钥**，点击**保存**后将数据保存到本地，在右上角选择配置好的模型
 
-![image.png](../assets/pictures/easy-dataset/image4.png)
+![image.png](/assets/images/easy-dataset/image4.png)
 
-![image.png](../assets/pictures/easy-dataset/image5.png)
+![image.png](/assets/images/easy-dataset/image5.png)
 
 5. 打开**任务配置**页面，设置文本分割长度为最小 500 字符，最大 1000 字符。在问题生成设置中，修改为每 10 个字符生成一个问题，修改后在页面最下方**保存任务配置**
 
-![image.png](../assets/pictures/easy-dataset/image6.png)
+![image.png](/assets/images/easy-dataset/image6.png)
 
 ### 1.3.2 处理数据文件
 
 1. 打开**文献处理**页面，选择并上传示例数据文件，选择文件后点击**上传并处理文件**
 
-![image.png](../assets/pictures/easy-dataset/image7.png)
+![image.png](/assets/images/easy-dataset/image7.png)
 
-![image.png](../assets/pictures/easy-dataset/image8.png)
+![image.png](/assets/images/easy-dataset/image8.png)
 
 2. 上传后会调用大模型解析文件内容并分块，耐心等待文件处理完成，示例数据通常需要 2 分钟左右
 
-![image.png](../assets/pictures/easy-dataset/image9.png)
+![image.png](/assets/images/easy-dataset/image9.png)
 
 ### 1.3.3 生成微调数据
 
 1. 待文件处理结束后，可以看到文本分割后的文本段，选择全部文本段，点击**批量生成问题**
 
-![image.png](../assets/pictures/easy-dataset/image10.png)
+![image.png](/assets/images/easy-dataset/image10.png)
 
 2. 点击后会调用大模型根据文本块来构建问题，耐心等待处理完成。视 API 速度，处理时间可能在 20\-40 分钟不等
 
-![image.png](../assets/pictures/easy-dataset/image11.png)
+![image.png](/assets/images/easy-dataset/image11.png)
 
 3. 处理完成后，打开**问题管理**页面，选择全部问题，点击**批量构造数据集**，耐心等待数据生成。视 API 速度，处理时间可能在 20\-40 分钟不等
 
-![image.png](../assets/pictures/easy-dataset/image12.png)
+![image.png](/assets/images/easy-dataset/image12.png)
 
-![image.png](../assets/pictures/easy-dataset/image13.png)
+![image.png](/assets/images/easy-dataset/image13.png)
 
 如果部分问题的答案生成失败，可以重复以上操作再次生成。
 
@@ -176,11 +176,11 @@ git clone https://github.com/llm-factory/FinancialData-SecondQuarter-2024.git
 
 1. 答案全部生成结束后，打开**数据集管理**页面，点击**导出数据集**
 
-![image.png](../assets/pictures/easy-dataset/image14.png)
+![image.png](/assets/images/easy-dataset/image14.png)
 
 2. 在导出配置中选择**在**** ****LLaMA Factory**** ****中使用**，点击**更新**** ****LLaMA Factory**** ****配置**，即可在对应文件夹下生成配置文件，点击**复制**按钮可以将配置路径复制到粘贴板。
 
-![image.png](../assets/pictures/easy-dataset/image15.png)
+![image.png](/assets/images/easy-dataset/image15.png)
 
 3. 在配置文件路径对应的文件夹中可以看到生成的数据文件，其中主要关注以下三个文件
 
@@ -192,7 +192,7 @@ git clone https://github.com/llm-factory/FinancialData-SecondQuarter-2024.git
 
 其中 alpaca 和 sharegpt 格式均可以用来微调，两个文件内容相同。
 
-![image.png](../assets/pictures/easy-dataset/image16.png)
+![image.png](/assets/images/easy-dataset/image16.png)
 
 # 2 使用 LLaMA Factory 微调 Qwen2\.5\-3B\-Instruct 模型
 
@@ -241,48 +241,48 @@ CUDA_VISIBLE_DEVICES=0 USE_MODELSCOPE_HUB=1 llamafactory-cli webui
 
 1. 进入 Web UI 界面后，选择模型为 Qwen2\.5\-3B\-Instruct，模型路径可填写本地绝对路径，不填则从互联网下载
 
-![image.png](../assets/pictures/easy-dataset/image17.png)
+![image.png](/assets/images/easy-dataset/image17.png)
 
 3. 将**数据路径**改为使用 Easy Dataset 导出的配置路径，选择 Alpaca 格式数据集
 
-![image.png](../assets/pictures/easy-dataset/image18.png)
+![image.png](/assets/images/easy-dataset/image18.png)
 
 4. 为了让模型更好地学习数据知识，将**学习率**改为 1e\-4，**训练轮数**提高到 8 轮。批处理大小和梯度累计则根据设备显存大小调整，在显存允许的情况下提高批处理大小有助于加速训练，一般保持批处理大小×梯度累积×显卡数量等于 32 即可
 
-![image.png](../assets/pictures/easy-dataset/image19.png)
+![image.png](/assets/images/easy-dataset/image19.png)
 
 5. 点击其他参数设置，将**保存间隔**设置为 50，保存更多的检查点，有助于观察模型效果随训练轮数的变化
 
-![image.png](../assets/pictures/easy-dataset/image20.png)
+![image.png](/assets/images/easy-dataset/image20.png)
 
 6. 点击 LoRA 参数设置，将 **LoRA 秩**设置为 16，并把 **LoRA 缩放系数**设置为 32
 
-![image.png](../assets/pictures/easy-dataset/image21.png)
+![image.png](/assets/images/easy-dataset/image21.png)
 
 7. 点击**开始**按钮，等待模型下载，一段时间后应能观察到训练过程的损失曲线
 
-![image.png](../assets/pictures/easy-dataset/image22.png)
+![image.png](/assets/images/easy-dataset/image22.png)
 
 8. 等待模型训练完毕，视显卡性能，训练时间可能在 20\-60 分钟不等
 
-![image.png](../assets/pictures/easy-dataset/image23.png)
+![image.png](/assets/images/easy-dataset/image23.png)
 
 ## 2.3 验证微调效果
 
 1. 选择**检查点路径**为刚才的输出目录，打开 **Chat** 页面，点击**加载模型**
 
-![image.png](../assets/pictures/easy-dataset/image24.png)
+![image.png](/assets/images/easy-dataset/image24.png)
 
 2. 在下方的对话框中输入问题后，点击提交与模型进行对话，经与原始数据比对发现微调后的模型回答正确
 
-![image.png](../assets/pictures/easy-dataset/image25.png)
+![image.png](/assets/images/easy-dataset/image25.png)
 
 3. 点击**卸载模型**将微调后的模型卸载，清空**检查点路径**，点击**加载模型**加载微调前的原始模型
 
-![image.png](../assets/pictures/easy-dataset/image26.png)
+![image.png](/assets/images/easy-dataset/image26.png)
 
 4. 输入相同的问题与模型进行对话，发现原始模型回答错误，证明微调有效
-   ![image.png](../assets/pictures/easy-dataset/image27.png)
+   ![image.png](/assets/images/easy-dataset/image27.png)
 
 3B 模型的微调效果相对有限，此处仅用作教程演示。如果希望得到更好的结果，建议在资源充足的条件下尝试 7B/14B 模型。
 

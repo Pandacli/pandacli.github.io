@@ -27,7 +27,7 @@ EvalScope 不仅仅是一个评测工具，它是您模型优化之旅的得力�
 - 📊 模型推理性能压测：确保您的模型在实际应用中表现出色。
 - 🚀 与 [ms-swift](https://github.com/modelscope/ms-swift) 训练框架无缝集成，一键发起评测，为您的模型开发提供从训练到评估的全链路支持。
 
-![...](../assets/pictures/evalscope/EvalScope_001.png)
+![...](/assets/images/evalscope/EvalScope_001.png)
 
 ## 1. 安装
 
@@ -59,7 +59,7 @@ evalscope --version
 
 根据您的需求，安装相应的功能扩展：
 
-![...](../assets/pictures/evalscope/EvalScope_002.png)
+![...](/assets/images/evalscope/EvalScope_002.png)
 
 ### 方式2：使用源码安装
 
@@ -113,7 +113,7 @@ evalscope eval --model /path/to/your/model --datasets gsm8k arc --limit 5
 - `--datasets`: 指定一个或多个数据集名称，以空格分隔。支持的数据集请参考[数据集列表](https://evalscope.readthedocs.io/zh-cn/latest/get_started/supported_dataset/index.html)。
 - `--limit`: 每个数据集最多评测的样本数，便于快速验证。若不设置，则评测全量数据。
 
-![...](../assets/pictures/evalscope/EvalScope_004.png)
+![...](/assets/images/evalscope/EvalScope_004.png)
 
 ### 2.2 使用 Python 脚本代码
 
@@ -162,7 +162,7 @@ run_task(task_cfg="config.yaml")
 
 评测完成后，终端会打印出如下格式的得分报告：
 
-![...](../assets/pictures/evalscope/EvalScope_005.png)
+![...](/assets/images/evalscope/EvalScope_005.png)
 
 > **小技巧**：您还可以通过可视化工具来深入分析评测结果。
 > 详情参考：[评测结果可视化](https://evalscope.readthedocs.io/zh-cn/latest/get_started/visualization.html)
