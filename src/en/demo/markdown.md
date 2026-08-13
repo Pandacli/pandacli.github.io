@@ -1,4 +1,5 @@
 ---
+breadcrumbExclude: true
 title: Markdown Enhance
 icon: fa6-brands:markdown
 order: 2

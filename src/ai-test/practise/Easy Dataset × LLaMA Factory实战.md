@@ -1,4 +1,5 @@
 ---
+breadcrumbExclude: true
 title: Easy Dataset × LLaMA Factory 让大模型高效学习领域知识 
 date: 2026-08-06
 tag:

@@ -1,4 +1,5 @@
 ---
+breadcrumbExclude: true
 # This is the title of the article
 title: Page Config
 # This is the icon of the page

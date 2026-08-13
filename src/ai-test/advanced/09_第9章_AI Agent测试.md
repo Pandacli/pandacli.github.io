@@ -1,3 +1,7 @@
+---
+breadcrumbExclude: true
+---
+
 # 第9章 AI Agent测试
 AI
 Agent是LLM应用的高级形态，能够自主决策、调用工具、多轮交互。Agent测试需要覆盖决策逻辑、工具调用、

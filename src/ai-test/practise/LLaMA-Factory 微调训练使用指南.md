@@ -1,4 +1,5 @@
 ---
+breadcrumbExclude: true
 title: LLaMA-Factory 微调训练使用指南
 date: 2026-06-02
 tag:

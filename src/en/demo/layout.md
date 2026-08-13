@@ -1,4 +1,5 @@
 ---
+breadcrumbExclude: true
 title: Layout
 icon: object-group
 order: 2

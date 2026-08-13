@@ -1,4 +1,5 @@
 ---
+breadcrumbExclude: true
 title: AI测试
 index: true
 icon: laptop-code

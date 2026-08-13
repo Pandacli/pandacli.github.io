@@ -1,4 +1,5 @@
 ---
+breadcrumbExclude: true
 title: EasyData数据集工具
 date: 2026-08-06
 tag:

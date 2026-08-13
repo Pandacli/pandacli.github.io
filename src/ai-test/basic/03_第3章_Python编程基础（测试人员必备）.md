@@ -1,3 +1,7 @@
+---
+breadcrumbExclude: true
+---
+
 # 第3章 Python编程基础（测试人员必备）
 Python是AI测试的第一语言。如果你之前用的是Java/C#等语言做自动化测试，Python的简洁语法会让你很快上
 手。重点掌握数据处理库和测试框架。

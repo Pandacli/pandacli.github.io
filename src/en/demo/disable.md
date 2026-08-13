@@ -1,4 +1,5 @@
 ---
+breadcrumbExclude: true
 title: Disabling layout and features
 icon: gears
 order: 4

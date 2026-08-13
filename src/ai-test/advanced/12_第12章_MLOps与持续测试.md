@@ -1,3 +1,7 @@
+---
+breadcrumbExclude: true
+---
+
 # 第12章 MLOps与持续测试
 MLOps是将DevOps理念应用到ML系统的实践，持续测试是其中核心环节。理解MLOps流程能帮助你在AI开发全
 生命周期中嵌入质量保障。

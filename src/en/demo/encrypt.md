@@ -1,4 +1,5 @@
 ---
+breadcrumbExclude: true
 icon: lock
 category:
   - Guide

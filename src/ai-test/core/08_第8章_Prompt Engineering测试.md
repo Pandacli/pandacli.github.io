@@ -1,3 +1,7 @@
+---
+breadcrumbExclude: true
+---
+
 # 第8章 Prompt Engineering测试
 Prompt是人与LLM的接口，Prompt的质量直接决定LLM应用的质量。测试Prompt不仅要验证输出质量，还要测
 试Prompt的鲁棒性和可维护性。

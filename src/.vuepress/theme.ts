@@ -65,7 +65,7 @@ export default hopeTheme({
       // sidebar
       sidebar: zhSidebar,
 
-      footer: "默认页脚",
+      footer: "HelloWorld",
 
       displayFooter: true,
 
@@ -193,6 +193,12 @@ export default hopeTheme({
 
   plugins: {
     blog: true,
+    copyright:{
+      // 禁用选择
+      disableSelection: true,
+      // 禁用复制
+      disableCopy: true,
+    },
 
     // Install @waline/client before enabling it
     // Note: This is for testing ONLY!
@@ -201,7 +207,6 @@ export default hopeTheme({
     //   provider: "Waline",
     //   serverURL: "https://waline-comment.vuejs.press",
     // },
-
     components: {
       components: ["Badge", "VPCard"],
     },

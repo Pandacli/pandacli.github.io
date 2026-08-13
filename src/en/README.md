@@ -1,4 +1,5 @@
 ---
+breadcrumbExclude: true
 home: true
 layout: Blog
 icon: house

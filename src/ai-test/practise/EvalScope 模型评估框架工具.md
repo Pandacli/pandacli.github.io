@@ -1,4 +1,5 @@
 ---
+breadcrumbExclude: true
 title: EvalScope 模型评估框架工具
 date: 2026-06-02
 tag:
