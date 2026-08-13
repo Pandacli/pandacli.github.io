@@ -4,7 +4,7 @@ date: 2026-08-07
 ---
 
 
-# 如何写一个Agent Skill
+# Agent Skill指南
 - [Trae skill](./acticle/如何写好一个Skill.md)
 # 需求分析评审
 

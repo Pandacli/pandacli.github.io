@@ -11,5 +11,16 @@
     "vuepress": "1.9.7",
     "vuepress-theme-reco": "1.6.17"
   },
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "katex": "^0.18.4",
+    "markdown-it-texmath": "^1.0.0",
+    "mathjax-full": "^3.2.1",
+    "vuepress-plugin-bg": "^2.0.0-rc.2",
+    "vuepress-plugin-cursor-effects": "^1.1.6",
+    "vuepress-plugin-live2d": "^0.0.7",
+    "vuepress-plugin-nest": "^1.0.2",
+    "vuepress-plugin-ribbon": "^1.1.6",
+    "vuepress-plugin-sakura": "^1.2.1"
+  }
 }
