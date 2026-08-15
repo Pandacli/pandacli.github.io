@@ -1,4 +1,5 @@
 ---
+breadcrumbExclude: true
 title: 一个语言模型的文件包里到底有什么
 date: 2026-08-05
 tag:

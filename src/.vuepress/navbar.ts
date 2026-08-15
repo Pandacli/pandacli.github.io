@@ -12,14 +12,38 @@ export const zhNavbar = navbar([
     link: "/ai-test/",
   },
   {
-    text: "关于",
-    icon: "circle-info",
-    link: "/intro.html",
+    text: "软件测试基础",
+    icon: "vial",
+    link: "/test/",
+  },
+  {
+    text: "前端测试",
+    icon: "code",
+    link: "/frontend-test/",
+  },
+  {
+    text: "后端测试",
+    icon: "server",
+    link: "/backend-test/",
+  },
+  {
+    text: "AI应用开发",
+    icon: "robot",
+    link: "/ai/",
+  },
+  {
+    text: "推荐书籍",
+    link: "/books/",
   },
   {
     text: "网站相关",
     icon: "link",
     children: [
+      {
+        text:"关于我",
+        icon:"circle-info",
+        link:"/intro.html",
+      },
       {
         text: "GitHub",
         icon: "fa6-brands:github",

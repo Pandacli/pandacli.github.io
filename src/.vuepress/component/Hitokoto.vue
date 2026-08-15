@@ -5,24 +5,54 @@ const hitokoto = ref("");
 const from = ref("");
 const show = ref(false);
 
+const FALLBACK_QUOTES = [
+  { text: "我们是独立的个体，却不是孤独的存在。", from: "千里共良宵" },
+  { text: "今人不见古时月，今月曾经照古人。", from: "李白《把酒问月》" },
+  { text: "生活明朗，万物可爱，人间值得，未来可期。", from: "佚名" },
+  { text: "愿你的世界阳光温柔，冬天快乐。", from: "佚名" },
+];
+
+// v1 为主站，international 为海外镜像；两者都不可用时回退到本地句子。
+const API_ENDPOINTS = [
+  "https://v1.hitokoto.cn/?encode=json&charset=utf-8",
+  "https://international.v1.hitokoto.cn/?encode=json&charset=utf-8",
+];
+
+const apply = (text: string, fromText: string) => {
+  hitokoto.value = text;
+  from.value = fromText;
+  show.value = true;
+};
+
+const applyFallback = () => {
+  const q = FALLBACK_QUOTES[Math.floor(Math.random() * FALLBACK_QUOTES.length)];
+  apply(q.text, `《${q.from}》`);
+};
+
 const fetchHitokoto = async () => {
-  try {
-    const res = await fetch("https://v1.hitokoto.cn/?encode=json&charset=utf-8");
-    if (!res.ok) throw new Error("network error");
-    const data = await res.json();
-    if (data && data.hitokoto) {
-      hitokoto.value = data.hitokoto;
-      from.value = data.from_who
-        ? `${data.from_who}《${data.from || "佚名"}》`
-        : data.from
-          ? `《${data.from}》`
-          : "";
-      show.value = true;
+  for (const url of API_ENDPOINTS) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 5000);
+    try {
+      const res = await fetch(url, { signal: controller.signal });
+      if (!res.ok) continue;
+      const data = await res.json();
+      if (data && data.hitokoto) {
+        const fromText = data.from_who
+          ? `${data.from_who}《${data.from || "佚名"}》`
+          : data.from
+            ? `《${data.from}》`
+            : "";
+        apply(data.hitokoto, fromText);
+        return;
+      }
+    } catch (e) {
+      // 该端点失败，尝试下一个
+    } finally {
+      clearTimeout(timer);
     }
-  } catch (e) {
-    console.error("Hitokoto fetch error:", e);
-    show.value = false;
   }
+  applyFallback();
 };
 
 onMounted(fetchHitokoto);

@@ -11,13 +11,15 @@ export default hopeTheme({
     url: "https://mister-hope.com",
   },
 
-  logo: "https://theme-hope-assets.vuejs.press/logo.svg",
+  logo: "/assets/icon/chrome-192.png",
 
   repo: "vuepress-theme-hope/vuepress-theme-hope",
 
   docsDir: "src",
 
   blog: {
+    avatar: "/logo.jpg",
+
     medias: {
       // Baidu: "https://example.com",
       // BiliBili: "https://example.com",
@@ -220,7 +222,7 @@ export default hopeTheme({
 
     // install @vuepress/plugin-pwa and uncomment these if you want a PWA
     // pwa: {
-    //   favicon: "/favicon.ico",
+    //   favicon: "/favicon_backup.ico",
     //   cacheHTML: true,
     //   cacheImage: true,
     //   appendBase: true,
@@ -247,7 +249,7 @@ export default hopeTheme({
     //         type: "image/png",
     //       },
     //       {
-    //         src: "/assets/icon/chrome-512.png",
+    //         src: "/assets/icon/chrome-5121.png",
     //         sizes: "512x512",
     //         type: "image/png",
     //       },
