@@ -9,6 +9,7 @@ breadcrumbExclude: true
 performance_test 是 **Locust 性能/负载测试** 子项目，用于对广汽传祺 App 后端 API 进行压力测试。
 
 本文档汇总各被测接口的 Locust 启动命令、测试模型与脚本代码架构，可直接作为压测执行的速查手册。所有脚本位于 `/root/gacmotor_app_test/performance_test/locust_scripts/uat` 目录，压测前务必更新账号的 X-token、UserOneId、Mobile、VIN 等认证信息。
+
 ## 1. 启动测试命令
 
 > 建议：每压测完成一个脚本，可以键盘Ctl + Z 退出, 执行 kill -9 $(lsof -t -i:8089) ,避免占用端口号
@@ -186,10 +187,12 @@ locust -f verify_pin_code.py --loglevel INFO --csv=../docs/verify_pin_code --csv
 ```
 
 ### 1.2 测试模型
+
 **LoadTestShape** — 采用三段式负载：
 - 0-60s：预热（80 用户，10/s 生成速率）
 - 60-120s：爬升到目标并发（150 用户，15/s）
 - 120-720s：稳态 10 分钟（150 用户，5/s）
+
 ## 2. 脚本代码架构
 
 > performance_test/
@@ -217,6 +220,7 @@ locust -f verify_pin_code.py --loglevel INFO --csv=../docs/verify_pin_code --csv
 > │ │ └── performance_interface.md # 被测接口文档
 
 ### 核心组件
+
 **压测脚本** (find_car_location.py) 包含四个紧密耦合的部分：
 1. **业务配置** — VIN 池（使用 itertools.cycle 循环取用）+ 认证 headers（含加密的 token/Mobile/UserOneId/sign）。headers 直接从 config/urls_config.py 导入，导入失败时有内联 fallback。
 2. **LoadTestShape** — FindCarLocation1Step2MinShape 定义三段式负载：
@@ -230,7 +234,9 @@ locust -f verify_pin_code.py --loglevel INFO --csv=../docs/verify_pin_code --csv
 - A2APP_BaseVO：使用 resultCode/resultMsg 字段的 Java 风格响应
 - UAT_BASE_VO：使用 code/msg 字段的 UAT 环境响应
 这些 VO 类目前被定义但未在压测脚本中直接使用 — 压测脚本内联了校验逻辑以避免额外对象创建开销。
+
 ### 脚本结构模式
+
 每个压测脚本遵循统一结构，参考 find_car_location.py：
 1. **业务配置** — 接口 URL + 对应 headers 从 config/performance_urls.py 导入，导入失败时内联 fallback
 2. **VIN 池** — 需要 VIN 的接口使用 itertools.cycle 循环取用；无 VIN 的接口（如 global_notice_find_all、query_default_car、get_user_ticket）省略
@@ -238,12 +244,16 @@ locust -f verify_pin_code.py --loglevel INFO --csv=../docs/verify_pin_code --csv
 4. **HttpUser** — constant_pacing(0) 无等待模式，唯一的 @task 发送 POST 请求
 5. **业务级校验** — 支持多种成功码：200/"200"/0/"0"/1/"1"/"0000"/"success"
 6. **shape_class 绑定** — 将 LoadTestShape 实例赋值给模块级变量
+
 ### 认证 Headers
+
 config/urls_config.py 中定义了多套 headers 以适配不同接口的认证要求：
 ![认证 Headers 配置](/assets/images/locust/Locust-业务实战.003.jpeg)
 **点击图片可查看完整电子表格**
 注意：headers 中的 token 和签名值是静态的快照，长期运行可能需要刷新。
+
 ### 微调：性能测试模型（To do）
+
 - 去掉限速瓶颈：把 wait_time = constant_pacing(1.4) 改为 constant_pacing(0) 或 between(0, 0)
 
 ```python
@@ -277,11 +287,14 @@ wait_time = constant_pacing(0)
 - 1 master + N workers（按 CPU 核线性扩）
 - 开启 CSV 输出用于后验分析：
 - --csv=report/find_car_location --csv-full-history
+
 ### 验收标准（建议）
+
 - 稳态 3 分钟内：QPS >= 600
 - 成功率 >= 99%
 - P95 延迟在可接受阈值（你们业务自定）
 - 无大规模超时/连接失败
+
 ### 附录：参数说明
 
 ```bash

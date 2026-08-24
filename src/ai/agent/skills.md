@@ -220,7 +220,7 @@ description: 生成提交消息。
 import pdfplumber
 with pdfplumber.open("file.pdf") as pdf:
     text = pdf.pages[0].extract_text()
-```
+```text
 ````
 
 从 PDF 定义和工具罗列开始的正文，对 Agent 的下一步没有帮助：
@@ -308,7 +308,7 @@ Write code before the test? Delete it. Start over.
 
 ```bash
 python scripts/migrate.py --verify --backup
-```
+```text
 
 不要修改命令，不要添加额外参数。
 

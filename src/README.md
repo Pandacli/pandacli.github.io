@@ -8,9 +8,7 @@ breadcrumbExclude: true
 heroText: 你好
 heroFullScreen: true
 bgImage: /assets/images/bg.jpg
-tagline: 
+tagline:
 
 footer: Hello-world
 ---
-
-

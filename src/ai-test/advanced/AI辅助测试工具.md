@@ -3,9 +3,12 @@ breadcrumbExclude: true
 ---
 
 # 第11章 AI辅助测试工具
+
 AI不仅是被测对象，也是测试人员的强大工具。掌握AI辅助测试工具可以大幅提升测试效率，这也是传统测试人员
 的重要转型方向。
+
 ## 11.1 AI辅助测试工具全景图
+
 | 类别 | 代表工具 | 核心能力 |
 |---|---|---|
 | AI测试用例生成 | Claude/GPT + 自定义Prompt | 根据需求/代码自动生成测试用例 |
@@ -18,6 +21,7 @@ AI不仅是被测对象，也是测试人员的强大工具。掌握AI辅助测�
 | 缺陷根因分析 | LLM + 日志分析 | 自动分析失败原因 |
 
 ## 11.2 使用LLM生成测试用例
+
 ```python
 def generate_test_cases_with_llm(requirement_doc):
 ```
@@ -43,6 +47,7 @@ def generate_test_cases_with_llm(requirement_doc):
 ```
 
 ## 11.3 使用LLM分析测试结果
+
 ```python
  def analyze_test_failures(test_report, error_logs):
 ```
@@ -69,12 +74,15 @@ def generate_test_cases_with_llm(requirement_doc):
 ```
 
 ## 11.4 AI驱动的视觉测试
+
 传统视觉测试依赖像素级对比，误报率高。AI驱动的视觉测试使用深度学习模型，能够像人一样识别视觉差异，忽略无关
 变化(如动态时间戳)，关注真正的布局和样式问题。
 - Applitools Eyes：AI视觉对比引擎，自动忽略动态内容变化
 - Percy by BrowserStack：快照对比 + AI智能差异检测
 - Chromatic：Storybook组件视觉回归测试
+
 ## 11.5 AI驱动的测试维护
+
 AI还可以帮助解决测试维护的痛点——自动修复因UI变更导致的定位器失效，识别并标记不稳定(flaky)的测试用例，自动
 生成测试数据等。
 | 痛点 | AI解决方案 | 效果 |

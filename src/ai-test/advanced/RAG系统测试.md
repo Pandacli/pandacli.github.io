@@ -3,10 +3,13 @@ breadcrumbExclude: true
 ---
 
 # 第10章 RAG系统测试
+
 RAG(Retrieval-Augmented
 Generation)是目前企业AI应用最主流的架构。通过检索外部知识库增强LLM的回答，减少幻觉。RAG测试需要同
 时覆盖检索和生成两个环节。
+
 ## 10.1 RAG系统架构与测试分层
+
 RAG系统由文档处理、向量索引、检索、重排序、生成五个核心环节组成，测试需要分层覆盖每个环节，同时做端到端评
 估。
 | 测试层级 | 测试对象 | 关键指标 |
@@ -19,6 +22,7 @@ RAG系统由文档处理、向量索引、检索、重排序、生成五个核�
 | 端到端测试 | 从问题到最终回答 | 回答质量、延迟、成本 |
 
 ## 10.2 检索质量测试
+
 ```python
 def evaluate_retrieval(retriever, test_queries):
 ```
@@ -57,7 +61,9 @@ def evaluate_retrieval(retriever, test_queries):
 ```
 
 ## 10.3 生成质量测试
+
 ### 10.3.1 忠实性测试(Faithfulness)
+
 忠实性测试验证LLM的回答是否忠实于检索到的上下文，不添加额外的未经验证的信息。
 ```python
  def test_faithfulness(question, answer, contexts):
@@ -88,6 +94,7 @@ def evaluate_retrieval(retriever, test_queries):
 ```
 
 ## 10.4 RAGAS评测框架实操
+
 RAGAS(Retrieval Augmented Generation
 Assessment)是专门用于RAG系统评测的开源框架，提供了一套标准化的评估指标和流程。
 ```python
@@ -125,6 +132,7 @@ print(results)
 ```
 
 ## 10.5 RAG系统常见问题与测试策略
+
 | 问题 | 表现 | 测试方法 |
 |---|---|---|
 | 检索失败 | 相关文档未被检索到 | 已知答案问题集测试召回率 |

@@ -339,6 +339,18 @@ export const zhSidebar = sidebar({
         },
       ],
     },
+    {
+      text: "MCP 集合",
+      icon: "plug",
+      prefix: "mcps/",
+      collapsible: true,
+      children: [
+        {
+          text: "MCP 测试集合",
+          link: "mcp集合",
+        },
+      ],
+    },
   ],
   "/test/": [
     {
@@ -437,24 +449,62 @@ export const zhSidebar = sidebar({
       collapsible: true,
       children: [
         {
-          text: "Jmeter 指南",
-          link: "Jmeter指南",
-        },
-        {
-          text: "Jmeter 业务场景实战",
-          link: "Jmeter业务场景实战",
-        },
-        {
           text: "Locust Agent 开发",
           link: "Locust_Agent_开发畅想",
         },
         {
-          text: "Locust 业务实战",
-          link: "Locust_业务实战",
+          text: "性能测试面试题",
+          link: "性能测试面试题",
         },
         {
-          text: "云运维性能监控分析",
-          link: "云运维性能监控分析",
+          text: "JVM 调优",
+          icon: "microchip",
+          prefix: "jvm/",
+          collapsible: true,
+          children: [
+            {
+              text: "JVM 内存结构",
+              link: "java-jvm-struct",
+            },
+            {
+              text: "JVM GC 回收基本原理",
+              link: "java-jvm-gc",
+            },
+          ],
+        },
+        {
+          text: "MySQL",
+          icon: "database",
+          prefix: "mysql/",
+          collapsible: true,
+          children: [],
+        },
+        {
+          text: "Tomcat",
+          icon: "server",
+          prefix: "tomcat/",
+          collapsible: true,
+          children: [],
+        },
+        {
+          text: "测试工具",
+          icon: "toolbox",
+          prefix: "tools/",
+          collapsible: true,
+          children: [
+            {
+              text:"jdk自带调优工具",
+              link:"jdk_tuning_tools"
+            },
+            {
+              text: "压测工具 Jmeter 指南",
+              link: "Jmeter指南",
+            },
+            {
+              text: "压测工具 Locust 业务实战",
+              link: "Locust_业务实战",
+            },
+          ],
         },
       ],
     },
@@ -481,6 +531,110 @@ export const zhSidebar = sidebar({
       text: "推荐书籍",
       icon: "book-open",
       link: "",
+    },
+    {
+      text: "高频测试开发面试题",
+      icon: "pen-to-square",
+      prefix: "interview/",
+      collapsible: true,
+      children: [
+        {
+          text: "测试基础与测试理论",
+          link: "测试基础与测试理论",
+        },
+        {
+          text: "测试用例设计与质量",
+          link: "测试用例设计与质量",
+        },
+        {
+          text: "编程与算法",
+          link: "编程与算法",
+        },
+        {
+          text: "软技能与开放题",
+          link: "软技能与开放题",
+        },
+        {
+          text: "接口测试",
+          link: "接口测试",
+        },
+        {
+          text: "数据库与中间件",
+          link: "数据库与中间件",
+        },
+        {
+          text: "自动化测试",
+          link: "自动化测试",
+        },
+        {
+          text: "持续集成与测试平台",
+          link: "持续集成与测试平台",
+        },
+        {
+          text: "AI测试",
+          link: "AI测试",
+        },
+        {
+          text: "高频测试开发面试题汇总",
+          link: "tester",
+        },
+      ],
+    },
+  ],
+  "/python/": [
+    {
+      text: "Python 编程导学",
+      icon: "fa6-brands:python",
+      link: "",
+    },
+    {
+      text: "Python 基础",
+      icon: "book",
+      prefix: "python_basic/",
+      collapsible: true,
+      children: [
+        {
+          text: "解释器",
+          link: "interpreter",
+        },
+        {
+          text: "Python 高阶数据结构",
+          link: "datastruct",
+        },
+        {
+          text: "面向对象编程",
+          link: "objectOriented",
+        },
+        {
+          text: "Python 函数",
+          link: "function",
+        },
+      ],
+    },
+    {
+      text: "算法与数据结构",
+      icon: "code",
+      link: "algorithm/",
+    },
+    {
+      text: "数据分析与科学计算",
+      icon: "chart-pie",
+      link: "data_science/",
+    },
+    {
+      text: "机器学习",
+      icon: "robot",
+      link: "machine_learning/",
+    },
+    {
+      text: "深度学习",
+      icon: "brain",
+      link: "deepmind_learning/",
+    },
+    {
+      text: "OpenCV 图像处理",
+      icon: "eye",
+      link: "open-cv/",
     },
   ],
 });

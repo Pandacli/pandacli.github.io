@@ -3,9 +3,12 @@ breadcrumbExclude: true
 ---
 
 # 第12章 MLOps与持续测试
+
 MLOps是将DevOps理念应用到ML系统的实践，持续测试是其中核心环节。理解MLOps流程能帮助你在AI开发全
 生命周期中嵌入质量保障。
+
 ## 12.1 MLOps概述
+
 MLOps(Machine Learning
 Operations)是一套管理ML系统开发、部署和运维的最佳实践。核心理念是将ML模型像软件一样进行版本管理、自动化
 测试、持续部署和监控。
@@ -16,6 +19,7 @@ Operations)是一套管理ML系统开发、部署和运维的最佳实践。核�
 | Level 2 CI/CD | 完整CI/CD流水线 | 全自动化测试+监控 |
 
 ## 12.2 ML流水线中的测试节点
+
 1. 数据验证门禁
 新数据进入训练管道前，自动检查数据质量(完整性、分布、异常值)
 2. 特征验证
@@ -30,7 +34,9 @@ Operations)是一套管理ML系统开发、部署和运维的最佳实践。核�
 新模型在生产流量上做影子推理，对比旧模型但不影响用户
 7. 金丝雀发布
 新模型先对少量流量(如5%)服务，监控关键指标无异常后逐步放量
+
 ## 12.3 模型质量门禁实现
+
 ```python
 # model_quality_gate.py
 class ModelQualityGate:
@@ -75,7 +81,9 @@ if not passed:
 ```
 
 ## 12.4 模型监控与告警
+
 ### 12.4.1 监控指标体系
+
 | 监控类别 | 关键指标 | 告警阈值 |
 |---|---|---|
 | 性能指标 | 准确率/F1/AUC | 低于基线5% |
@@ -86,6 +94,7 @@ if not passed:
 | 资源消耗 | CPU/内存/GPU利用率 | 利用率 > 85% |
 
 ### 12.4.2 数据漂移监控实现
+
 ```python
 def calculate_psi(expected, actual, bins=10):
    '''计算PSI(Population Stability Index)'''

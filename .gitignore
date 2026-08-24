@@ -1,34 +1,56 @@
-
-
-src/.vuepress/.cache/
-src/.vuepress/.temp/
-src/.vuepress/dist/
+# ============ 依赖目录 ============
 node_modules/
-# *.drawio
-*.drawio.bkp
-.DS_Store
-# VS Code Config file
-.vscode/
-# VuePress Cache
-**/.vuepress/.cache/
-# VuePress Temp
-**/.vuepress/.temp/
-# VuePress Output
-dist/
-traversal-folder-replace-string.py
-format-markdown.py
 
+# ============ 构建产物 ============
+dist/
+
+# ============ VuePress 缓存 / 临时文件 ============
+**/.vuepress/.cache/
+**/.vuepress/.temp/
+
+# ============ 环境变量与私有配置 ============
+.env
+.env.*
+!.env.example
 .npmrc
-lintmd-config.json
-.claude/settings.local.json
-/.obsidian
+
+# ============ 编辑器 / IDE ============
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# ============ 操作系统文件 ============
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ============ 日志 ============
+*.log
+npm-debug.log*
+
+# ============ AI 辅助工具本地配置 ============
+.agents/
+.claude/
+.codebuddy/
+.hermes/
+.qoder/
+.trae/
+
+# ============ 本地笔记 / 内部文档 ============
+.obsidian/
 docs/ai/claude.md
+docs/ai/MATERIALS.md
+docs/cs-basics/network/TODO.md
 scripts/docsearch-index.mjs
 PERFORMANCE_NOTES.md
-docs/cs-basics/network/TODO.md
-PERFORMANCE_NOTES.md
-dist.zip
+
+# ============ 本地工具脚本与归档 ============
 /TODO
-docs/ai/MATERIALS.md
-/.agents
-.idea
+dist.zip
+*.drawio.bkp
+traversal-folder-replace-string.py
+format-markdown.py
+lintmd-config.json

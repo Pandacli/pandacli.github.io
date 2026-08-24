@@ -3,13 +3,16 @@ breadcrumbExclude: true
 ---
 
 # 鸿蒙-Hypium自动化（Python版本）
+
 ## 前言
 
 DevEco Testing Hypium （以下简称Hypium）是HarmonyOS平台的UI自动化测试框架，支持用户使用Python语言为应用编写UI自动化测试脚本，主要包含以下特性：
 1. Hypium提供了控件、图像和比例坐标等**多种控件定位能力**，支持多窗口操作以及触摸屏/鼠标/键盘等**多种模拟输入功能**，支持**多设备**并行操作，能够覆盖各类场景和多种形态设备上的自动化用例编写需求，可支持鸿蒙手机、平板、PC等设备。
 2. Hypium提供了在PyCharm中使用的**用例编写辅助插件**，支持控件查看/投屏操作等多种用例开发辅助功能，提升用例开发体验和效率。
 3. Hypium能够为执行的用例生成详细的**用例执行报告**，并且自动记录设备日志以及执行步骤截图，为用户提供高效和专业的测试用例执行和结果分析体验。
+
 ## 安装向导
+
 1. **安装Python**
 推荐从[Python官网](https://www.python.org/)安装Python3.10版本。
 2. **安装PyCharm**
@@ -150,7 +153,7 @@ UiViewer插件当前仅支持USB连接本地设备调测和本地模拟器进行
 ![...](/assets/images/harmony/鸿蒙-Hypium自动化（Python版本）.018.png)
 点击左侧的DevEco Testing Hypium，可以创建Hypium用例模板工程。共有两种类型的Hypium模板工程，分别对应单设备和双设备的测试场景。
 
-```
+```text
 建议使用 python 3.10 及以上,因为导出测试服务包 需要 3.10 以上
 ```
 
@@ -158,7 +161,9 @@ UiViewer插件当前仅支持USB连接本地设备调测和本地模拟器进行
 选择对应模板，配置工程路径以及Python环境参数，点击Create即可创建Hypium测试用例工程。工程目录中包含一个模板用例和一个模板配置文件user_config.xml。
 以单设备工程为例，创建完成后的界面如下图所示。连接被测设备后，可右键点击模板用例文件代码编辑区域“执行hypium用例”来运行当前用例。
 ![...](/assets/images/harmony/鸿蒙-Hypium自动化（Python版本）.020.png)
+
 ## 测试脚本开发快速入门
+
 本章节将指导用户创建并执行一个简单的测试脚本工程，快速掌握项目目录结构中的关键文件，熟悉基于Hypium的测试脚本开发流程。
 **测试脚本工程创建**
 测试脚本工程创建主要有两种方式：
@@ -433,7 +438,7 @@ class Ts_002(TestSuite):
 将测试用例脚本（Python）文件保存到测试套目录中，并且设置文件名前缀为"TC_"，框架即可自动扫描当前测试套对应的所有测试用例脚本文件。
 具体的测试用例文件则是TC_001这些，因为我们在json文件中没做任何配置，所以我们的测试用例必须要以TC_开头，这样在框架执行的时候，才会自动去寻找这些文件并依次执行，如果不按照这个命名规则则找不到文件，执行指令依然是
 
-```
+```text
 python -m hypium run -l Ts_002
 ```
 
@@ -442,7 +447,9 @@ python -m hypium run -l Ts_002
 **方式二：**框架自动扫描的与测试套关联的测试用例脚本，测试用例脚本的保存目录和文件命名需要满足以下规则：
 1. 测试用例脚本文件需与测试套脚本文件位于同一目录。
 2. 测试用例脚本文件的文件名前缀是“TC_”（例如：TC_Login.py）。
+
 ## 测试用例执行
+
 本章节主要介绍测试用例的执行方式。测试用例支持两种执行方式：一是通过命令行执行，二是通过 PyCharm IDE 中的DevEco Testing Hypium 插件进行一键执行。
 **命令介绍**
 Hypium框架命令可以分为三类：help、list和run。其中run为最常用的执行命令。
@@ -599,10 +606,14 @@ driver.swipe(UiParam.LEFT)
 
 下文各小节将详细介绍主要测试场景中Hypium的API的使用方法。
 **API使用方法**
+
 ## 1. 控件查看
+
 通过 DevEco Testing Hypium插件中的 UiViewer 工具，可以查看界面控件的各项属性，有助于在后续测试用例开发中准确定位控件。具体使用方法请参考本文档的**“安装向导 -> DevEco Testing Hypium插件安装及使用方法**“小节。
 ![...](/assets/images/harmony/鸿蒙-Hypium自动化（Python版本）.027.png)
+
 ## 2. 控件查找
+
 Hypium 支持三种主要的控件定位方式：控件属性定位、图片匹配定位和比例坐标定位。
 从定位的稳定性与可靠性来看，优先级如下：
 - **首选：**控件属性定位（基于控件的属性信息精确定位）；
@@ -773,6 +784,7 @@ driver.touch((0.52, 0.98))
 ```
 
 ## 3. 窗口查找
+
 **查找窗口**
 
 ```json
@@ -800,6 +812,7 @@ window = driver.find_window(WindowFilter().focused(True))
 ```
 
 ## 4. 界面操作
+
 **Ⅰ.触摸屏类型**
 **点击**
 
@@ -1181,6 +1194,7 @@ driver.press_combination_key(KeyCode.CTRL_LEFT, KeyCode.SHIFT_LEFT, KeyCode.F)
 ```
 
 ## 5. hdc/shell命令执行
+
 **hdc命令执行**
 
 ```json
@@ -1339,6 +1353,7 @@ driver.stop_app("com.huawei.hmos.settings")
 ```
 
 ## 6. 文件拉取/推送
+
 **拉取文件**
 
 ```json
@@ -1394,6 +1409,7 @@ driver.has_file("/data/local/tmp/test_file.txt")
 ```
 
 ## 7. 文本输入/清除
+
 **输入文本**
 
 ```json
@@ -1437,6 +1453,7 @@ driver.clear_text(BY.type("InputText"))
 ```
 
 ## 8. 断言
+
 **Ⅰ. 常规断言**
 **检查是否相等**
 
@@ -1569,6 +1586,7 @@ driver.check_window(WindowFilter().focused(True), bundle_name="com.huawei.hmos.s
 ```
 
 ## 9. 日志打印
+
 用户使用以下方法可以在测试用例脚本中打印日志，日志会记录到测试报告中。
 
 ```json
@@ -1657,6 +1675,7 @@ if __name__ == '__main__':
 ```
 
 ## 11. 测试套 配置文件Json 配置错误
+
 11.1 **testsuite 路径 一定要写对！**
 若使用相对路径，需相对于 测试工程根目录 = testcases 文件夹；
 

@@ -3,8 +3,11 @@ breadcrumbExclude: true
 ---
 
 # 第15章 AI测试框架与工具链
+
 掌握主流AI测试框架和工具链是AI测试工程师的硬技能。本章介绍实际工作中最常用的框架和工具。
+
 ## 15.1 DeepEval — LLM评测框架
+
 DeepEval是专为LLM设计的测试框架，集成了多种评估指标，支持与pytest无缝集成，是LLM测试的首选工具。
 ```python
 # pip install deepeval
@@ -40,6 +43,7 @@ for r in results:
 ```
 
 ## 15.2 Promptfoo — Prompt测试工具
+
 Promptfoo是一个Prompt评测和对比工具，支持多模型、多Prompt的批量评测。
 ```python
 # promptfooconfig.yaml
@@ -69,6 +73,7 @@ Promptfoo是一个Prompt评测和对比工具，支持多模型、多Prompt的�
 ```
 
 ## 15.3 Weights & Biases — 实验跟踪
+
 W&B是ML实验跟踪的标准工具，测试人员可以用它来记录和比较模型评估结果。
 ```python
 import wandb
@@ -94,7 +99,9 @@ wandb.log({
 ```
 
 wandb.finish()
+
 ## 15.4 工具链选型建议
+
 | 场景 | 推荐工具 | 替代方案 |
 |---|---|---|
 | LLM输出评测 | DeepEval | RAGAS / Promptfoo |

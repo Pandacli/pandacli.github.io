@@ -8,7 +8,6 @@ category:
  - AI测评
 ---
 
-
 <div align="center">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ConardLi/easy-dataset">
 <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/ConardLi/easy-dataset/total">
@@ -24,10 +23,7 @@ category:
 
 **一个强大的大型语言模型微调数据集创建工具**
 
-
 [功能特点](#功能特点) • [快速开始](#本地运行) • [使用文档](https://docs.easy-dataset.com/) • [贡献](#贡献) • [许可证](#许可证)
-
-
 
 </div>
 
@@ -145,7 +141,6 @@ https://github.com/user-attachments/assets/6ddb1225-3d1b-4695-90cd-aa4cb01376a8
     </td>
   </tr>
 </table>
-
 
 ### 使用 NPM 安装
 
@@ -279,8 +274,6 @@ docker run -d \
 
 https://docs.easy-dataset.com/geng-duo/lian-xi-wo-men
 
-
-
 ## 引用
 
 如果您觉得此项目有帮助，请考虑以下列格式引用
@@ -304,4 +297,3 @@ https://docs.easy-dataset.com/geng-duo/lian-xi-wo-men
 <div align="center">
   <sub>由 <a href="https://github.com/ConardLi">ConardLi</a> 用 ❤️ 构建 • 关注我：公众号｜<a href="https://space.bilibili.com/474921808">B站</a>｜<a href="https://juejin.cn/user/3949101466785709">掘金</a>｜<a href="https://www.zhihu.com/people/wen-ti-chao-ji-duo-de-xiao-qi">知乎</a>｜<a href="https://www.youtube.com/@garden-conard">Youtube</a></sub>
 </div>
-

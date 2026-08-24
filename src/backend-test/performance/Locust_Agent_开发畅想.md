@@ -2,7 +2,7 @@
 breadcrumbExclude: true
 ---
 
-# Locust Agent 开发
+# Locust Agent 开发 （todo list）
 
 ## 前言
 
@@ -11,12 +11,14 @@ breadcrumbExclude: true
 该 Agent 的核心目标是：自动联动 Locust 发压端与被测服务器监控端，利用 LLM（大语言模型）的推理与工具调用（Function Calling）能力，实现“发压-监控-诊断-根因分析”的全链路自动化。
 
 以下是该工具的技术选型方案与系统详细实现方案：
+
 ## 一、技术选型方案
+
 为了保证与 Locust（基于 Python）的无缝集成，并利用成熟的 AI Agent 框架，整体技术栈深度绑定 Python 生态。
 ![技术选型方案](/assets/images/locust/Locust-Agent-开发.001.jpeg)
 **点击图片可查看完整电子表格**
-### 1. 数据库表设计（核心表）
 
+### 1. 数据库表设计（核心表）
 
 ```SQL
 -- 1. 测试任务表
@@ -62,12 +64,16 @@ CREATE TABLE diagnosis_reports (
 ```
 
 ### 2. 部署架构设计
+
 - **控制台 (Streamlit APP)**：用户下发压测任务、查看实时大屏、阅读 AI 诊断报告。
 - **Agent 核心引擎 (Celery Worker)**：运行 Agent 工作流，负责启动 Locust 进程、监听指标、调用 LLM。
 - **发压集群 (Locust Master/Worker)**：负责向被测服务发起高并发请求。
 - **监控层 (Prometheus)**：通过 Node Exporter 抓取被测服务器的系统物理指标，通过 cAdvisor 或 APM 抓取应用指标（如 JVM/GC，若有）。
+
 ## 二、系统详细实现方案
+
 ### 1. 功能模块划分
+
 系统主要分为以下四个核心模块：
 1. **任务执行模块 (Locust Controller)**：通过 Python subprocess 或 Locust 提供的 Web API 动态启动、停止压测，设定并发用户数和爬坡率（Spawn Rate）。
 2. **指标采集模块 (Metrics Collector)**：
@@ -75,7 +81,9 @@ CREATE TABLE diagnosis_reports (
 - **服务器资源指标**：通过 Prometheus API 查询特定时间段内被测服务器的 CPU 利用率、内存占用、磁盘I/O、网络带宽。
 3. **AI 诊断引擎 (LangGraph Agent)**：包含多个具身 Agent（Tools），能够根据指标异常自动调用 SSH 执行 top, jstat, dmesg 等命令。
 4. **前端展示模块 (Streamlit UI)**：将 Locust 压测曲线与服务器 CPU 曲线在同一时间轴（Dual-Y Axis）上对齐展示，并异步刷新 AI 诊断节点的思考过程。
+
 ### 2. 数据流程设计（Data Flow）
+
 整个智能体诊断的完整生命周期数据流如下：
 
 ```text
@@ -107,7 +115,9 @@ CREATE TABLE diagnosis_reports (
 ```
 
 ### 3. 关键技术难点及解决方案
+
 #### 难点一：如何有效、安全地获取服务器的 CPU 等资源性能指标？
+
 - **挑战**：直接让 AI 执行 SSH 具有高风险，且高频执行命令会消耗服务器自身资源。
 - **解决方案**：采用“非侵入式常规监控 + 侵入式深度诊断”相结合的方式。
 - **常规监控（Prometheus 方案）**：在被测服务器安装 Node Exporter。Agent 内部封装一个 query_prometheus_metric 的工具（Tool）。
@@ -138,6 +148,7 @@ def get_server_cpu_utilization(prometheus_url, query_range_minutes=5):
 ```
 
 #### 难点二：AI 如何精准捕捉“性能拐点”并触发诊断？
+
 - **挑战**：如果单纯依靠大模型盯着海量数据，Token 消耗巨大且响应慢。
 - **解决方案**：引入**传统规则/异常检测算法作为“哨兵”**，由哨兵激活 Agent。
 - **哨兵规则**：当满足以下任一条件时，向 Agent 发送中断信号（Interrupt）：
@@ -145,7 +156,9 @@ def get_server_cpu_utilization(prometheus_url, query_range_minutes=5):
 2. 错误率（Error Rate）连续 30 秒大于 2%。
 3. 被测服务器 CPU 利用率持续 1 分钟超过 85%。
 - 此时，Agent 被唤醒，并自动获取**拐点前后 2 分钟的上下文快照**提供给 LLM。
+
 #### 难点三：如何让 Agent 具备像高级测试开发工程师一样的诊断逻辑？
+
 - **挑战**：LLM 容易泛泛而谈（如“请检查您的网络或代码”），无法给出具体根因。
 - **解决方案**：利用 **LangGraph 构建结构化的诊断状态机 (Reasoning Graph)**，强制 Agent 遵循排查 SOP（标准作业程序）。
 1. **节点 1：指标对齐 (Align Metrics)**：AI 必须先对比 Locust 响应时间暴涨的时刻，服务器 CPU、内存、网络 IO 是否也同步暴涨。
@@ -154,7 +167,9 @@ def get_server_cpu_utilization(prometheus_url, query_range_minutes=5):
 - *若内存持续上升不回落* -> 进入**内存泄漏诊断**（工具调用：检查 JVM 堆内存或 Python 内存占用）。
 - *若服务器各项指标都很低，但 Locust 端报错 504* -> 进入**网关/连接池诊断**（工具调用：检查 Nginx 报错日志或数据库连接池状态）。
 3. **节点 3：总结报告 (Report Generation)**：汇总上述诊断工具的输出，给出结论。
+
 ## 三、核心代码结构参考（Agent 节点设计）
+
 以下是使用 Python 伪代码及 LangChain 工具箱定义一个能够自主诊断服务器性能的 Agent 核心实现：
 Python
 
@@ -208,5 +223,6 @@ diagnostic_agent = create_react_agent(llm, tools, state_modifier=system_prompt)
 ```
 
 ## 四、总结与演进方向
+
 通过上述方案搭建的 Agent 工具，将原先需要测试人员“看压测看板 -> 登录服务器 -> 敲命令 -> 看日志”长达半小时的链路，压缩到由 Agent 在触发拐点后 **30 秒内**自动完成。
 **后续演进**：可以进一步将研发侧的代码托管仓库（如 GitLab）作为工具接入 Agent。当 AI 定位到某个特定接口的 CPU 暴涨且属于计算密集时，可以直接读取该接口对应的后端源码，实现直接在报告中指出“第 X 行代码存在死循环/大对象创建”的终极智能诊断。

@@ -22,7 +22,9 @@ breadcrumbExclude: true
 2. **分支覆盖**：针对 if/switch 语句，检查所有条件分支是否被覆盖。
 3. **方法覆盖**：统计类中的方法是否被调用。
 4. **类覆盖**：统计类是否被加载和测试到。
+
 ## 1. 关于Jacoco
+
 ### 1.1 介绍
 
 > JaCoCo is a free Java code coverage library distributed under the [Eclipse Public License](https://www.jacoco.org/jacoco/trunk/doc/license.html)
@@ -50,11 +52,14 @@ breadcrumbExclude: true
 > 分支覆盖原理：每个分支都需要单独插桩记录，没有覆盖的分支意味着该分支上的任何错误都测不到
 
 #### 1.2.1 on the fly 模式
+
 实现方式：JVM 通过-javaagent参数指定jar文件启动Instrumentation代理程序，代理程序在ClassLoader装载一个class前 判断是否转换动态修改class文件，将统计的代码插入class
 特点：动态插桩，测试时插入统计代码，不测试时不插
 优势：无需提前插桩，无需考虑classpath设置问题，使用更方便简单
 适用场景：大多数常规测试场景
+
 #### 1.2.2 offline 模式
+
 实现步骤：测试前对文件进行插桩，生成插过桩的class或jar包，测试插过桩的包，生成覆盖率信息到文件
 最后统一处理生成报告
 特点：静态插桩，需要预先完成所有插桩工作
@@ -72,6 +77,7 @@ breadcrumbExclude: true
 启动jacocoagent
 使用cli包dump生成exec文件
 使用cli将exec生成report报表
+
 ## 二、Android SDK 项目整合 Jacoco（offline 模式）
 
 > 在Android项目中只能使用JaCoCo的离线插桩模式，主要是因为Android系统破坏了JaCoCo的这种便利性，原因如下:
@@ -81,6 +87,7 @@ breadcrumbExclude: true
 > 2. Android虚拟机无法像服务器上的JVM那样可以通过参数的方式实现配置，所以应用启动的时候是没有机会直接配置dump输出方式获取覆盖率信息的；
 
 ### 2.1 新建 jacoco.gradle 配置
+
 1. ` `在app 模块中 创建jacoco.gradle 文件
 
 ```text
@@ -203,6 +210,7 @@ apply from: 'jacoco.gradle'
 ```
 
 ### 2.2 编译 build Android-Test 测试代码
+
 - **右键项目app目录 ，点击Run，选择 All Tests 后, 会生成一个build 文件夹**
 ![...](/assets/images/unit_test/Jacoco接入使用说明.001.png)
 
@@ -228,12 +236,21 @@ apply from: 'jacoco.gradle'
 ![...](/assets/images/unit_test/Jacoco接入使用说明.005.png)
 
 ### 2.3 index.html 测试报告解析
+
 #### 2.3.1 行列指标说明
+
 ![...](/assets/images/unit_test/Jacoco接入使用说明.006.png)
+
 #### 2.3.2 颜色指标说明
+
 ![...](/assets/images/unit_test/Jacoco接入使用说明.007.png)
+
 ## 三、（Todo）Jenkins 集成 Jacoco + Gradle 实现自动化集成
+
 ### 3.1 Jenkins 环境 - 插件安装
+
 #### 3.1.1 GitLab 插件安装
+
 #### 3.1.2 Gradle 插件安装
+
 ### 3.2 接入流程

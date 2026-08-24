@@ -38,11 +38,9 @@ head:
 
 ### 性能测试
 
-- [Jmeter 指南](./performance/Jmeter指南.md)
-- [Jmeter 业务场景实战](./performance/Jmeter业务场景实战.md)
+- [Jmeter 指南](./performance/tools/Jmeter指南.md)
 - [Locust Agent 开发](performance/Locust_Agent_开发畅想.md)
-- [Locust 业务实战](performance/Locust_业务实战.md)
-- [云运维性能监控分析](./performance/云运维性能监控分析.md)
+- [Locust 业务实战](performance/tools/Locust_业务实战.md)
 
 ### 单元测试
 

@@ -3,17 +3,23 @@ breadcrumbExclude: true
 ---
 
 # 第8章 Prompt Engineering测试
+
 Prompt是人与LLM的接口，Prompt的质量直接决定LLM应用的质量。测试Prompt不仅要验证输出质量，还要测
 试Prompt的鲁棒性和可维护性。
+
 ## 8.1 Prompt测试的必要性
+
 在LLM应用中，Prompt就像代码一样需要被测试。一个微小的措辞变化可能导致输出质量的大幅波动。Prompt测试确保
 ：
 - Prompt在各种输入下都能产生符合要求的输出
 - Prompt修改不会引入回归问题
 - Prompt在不同模型版本上都能正常工作
 - Prompt的成本(Token消耗)在合理范围内
+
 ## 8.2 Prompt测试策略
+
 ### 8.2.1 功能性测试
+
 ```python
 import pytest
 
@@ -50,6 +56,7 @@ class TestSummarizationPrompt:
 ```
 
 ### 8.2.2 鲁棒性测试
+
 测试Prompt在各种异常输入下的表现：
 ```python
 robustness_inputs = [
@@ -76,7 +83,9 @@ def test_prompt_robustness(prompt_template, llm):
             # 不应抛出未处理的异常
             pytest.fail(f'异常输入导致崩溃: {e}')
 ```
+
 ## 8.3 Prompt版本管理与回归测试
+
 Prompt和代码一样需要版本管理。每次修改Prompt都应该运行回归测试集，确保改进不会引入新的问题。
 ```python
   # prompt_registry.py
@@ -104,7 +113,9 @@ Prompt和代码一样需要版本管理。每次修改Prompt都应该运行回�
 ```
 
 ## 8.4 Prompt优化与评估
+
 ### 8.4.1 Prompt优化策略对比
+
 | 策略 | 方法 | 效果 | 成本 |
 |---|---|---|---|
 | Zero-shot | 直接提问无示例 | 基线 | 最低 |
@@ -114,6 +125,7 @@ Prompt和代码一样需要版本管理。每次修改Prompt都应该运行回�
 | Tree-of-Thought | 探索多条推理路径 | 复杂推理最优 | 很高 |
 
 ### 8.4.2 Prompt A/B测试
+
 ```python
 def prompt_ab_test(prompt_a, prompt_b, test_cases,
               judge, n_runs=3):

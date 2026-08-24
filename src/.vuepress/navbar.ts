@@ -7,6 +7,11 @@ export const zhNavbar = navbar([
     link: "/",
   },
   {
+    text:"Python编程与开发",
+    icon:"",
+    link:"/python/"
+  },
+  {
     text: "AI测试",
     icon: "laptop-code",
     link: "/ai-test/",
@@ -24,7 +29,58 @@ export const zhNavbar = navbar([
   {
     text: "后端测试",
     icon: "server",
-    link: "/backend-test/",
+    children: [
+      {
+        text:"安全测试",
+        icon:"shield",
+        prefix:"/backend-test/security/",
+        children:[
+          {
+            text:"SQL注入",
+            icon:"database",
+            link:"sql_injection",
+          },
+          {
+            text:"XSS攻击",
+            icon:"code",
+            link:"xss",
+          },
+          {
+            text:"CSRF攻击",
+            icon:"code",
+            link:"csrf",
+          },
+        ]
+      },
+      {
+        text: "性能测试",
+        icon: "gauge-high",
+        prefix: "/backend-test/performance/",
+        children: [
+          {
+            text: "JVM 调优",
+            icon: "microchip",
+            link: "jvm/java-jvm-struct",
+          },
+          {
+            text: "Tomcat 调优",
+            icon: "cat",
+            link: "tomcat/tomcat_tuning",
+          },
+          {
+            text: "MySQL 调优",
+            icon: "database",
+            link: "mysql/mysql_tuning",
+          },
+          {
+            text: "调优工具",
+            icon: "database",
+            link: "tools/",
+          },
+        ],
+      },
+      
+    ],
   },
   {
     text: "AI应用开发",
@@ -48,12 +104,7 @@ export const zhNavbar = navbar([
         text: "GitHub",
         icon: "fa6-brands:github",
         link: "https://github.com/Pandacli",
-      },
-      {
-        text: "更新历史",
-        icon: "clock",
-        link: "/timeline/",
-      },
+      }
     ],
   },
 ]);

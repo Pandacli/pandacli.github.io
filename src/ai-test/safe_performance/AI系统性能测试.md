@@ -3,8 +3,11 @@ breadcrumbExclude: true
 ---
 
 # 第14章 AI系统性能测试
+
 AI推理服务的性能直接影响用户体验和运营成本。LLM推理的高延迟和高成本使得性能测试尤为重要。
+
 ## 14.1 AI推理性能指标
+
 | 指标 | 定义 | 典型要求 |
 |---|---|---|
 | 首Token延迟(TTFT) | 从请求到收到第一个Token | < 500ms |
@@ -16,6 +19,7 @@ AI推理服务的性能直接影响用户体验和运营成本。LLM推理的高
 | 内存使用 | 模型+推理的内存消耗 | 不超过可用内存90% |
 
 ## 14.2 使用Locust进行AI接口压测
+
 ```python
 # locustfile.py
 from locust import HttpUser, task, between
@@ -70,6 +74,7 @@ self.client.post(
 ```
 
 ## 14.3 LLM Token成本测试
+
 LLM的使用成本与Token消耗直接相关，测试Prompt的Token效率也是性能测试的重要环节。
 ```python
 import tiktoken
@@ -105,6 +110,7 @@ def analyze_token_cost(prompt_template, test_inputs,
 ```
 
 ## 14.4 性能优化建议
+
 | 优化方向 | 具体方法 | 效果 |
 |---|---|---|
 | Prompt优化 | 减少冗余Prompt/使用缓存 | 降低Token 30-50% |

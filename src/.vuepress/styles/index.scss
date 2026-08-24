@@ -5,3 +5,120 @@
   margin-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+
+// ============================================
+// 正文排版优化（[vp-content] #markdown-content）
+// 注意：不修改标题的 margin-top / padding-top，
+// 保留主题的滚动锚定机制（锚点跳转不被导航栏遮挡）。
+// ============================================
+[vp-content] #markdown-content {
+  // 正文字号
+  font-size: 16px;
+
+  // ---- 标题视觉层级 ----
+  h1 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.65rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--vp-c-divider);
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 0.7rem;
+  }
+
+  h4 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  h5,
+  h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  // ---- 段落 ----
+  p {
+    line-height: 1.85;
+    margin: 0.85rem 0;
+  }
+
+  // ---- 列表 ----
+  ul,
+  ol {
+    line-height: 1.8;
+    padding-left: 1.6rem;
+  }
+
+  li + li {
+    margin-top: 0.2rem;
+  }
+
+  // ---- 行内代码 ----
+  :not(pre) > code {
+    font-size: 0.875em;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    background: var(--vp-c-bg-soft);
+  }
+
+  // ---- 代码块 ----
+  div[class*="language-"] {
+    font-size: 13.5px;
+    line-height: 1.75;
+    border-radius: 8px;
+    margin: 1rem 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  // ---- 引用块 ----
+  blockquote {
+    margin: 1rem 0;
+    padding: 0.6rem 1rem;
+    border-inline-start: 3px solid var(--vp-c-brand);
+    border-radius: 0 6px 6px 0;
+    background: var(--vp-c-bg-soft);
+    color: var(--vp-c-text-mute);
+
+    p {
+      margin: 0.4rem 0;
+    }
+  }
+
+  // ---- 表格 ----
+  table {
+    font-size: 14px;
+    line-height: 1.65;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  // ---- 图片 ----
+  img {
+    border-radius: 8px;
+  }
+
+  // ---- 链接 ----
+  a {
+    color: var(--vp-c-brand);
+  }
+
+  a.header-anchor {
+    color: var(--vp-c-brand);
+  }
+}

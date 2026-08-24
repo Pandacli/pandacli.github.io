@@ -3,10 +3,13 @@ breadcrumbExclude: true
 ---
 
 # 第9章 AI Agent测试
+
 AI
 Agent是LLM应用的高级形态，能够自主决策、调用工具、多轮交互。Agent测试需要覆盖决策逻辑、工具调用、
 状态管理和端到端行为等多个层面。
+
 ## 9.1 AI Agent架构与测试切入点
+
 一个典型的AI Agent由以下组件构成，每个组件都需要独立测试和集成测试：
 | 组件 | 功能 | 测试重点 |
 |---|---|---|
@@ -18,6 +21,7 @@ Agent是LLM应用的高级形态，能够自主决策、调用工具、多轮交
 | 编排(Orchestration) | 多步骤流程控制 | 流程正确性、异常恢复 |
 
 ## 9.2 Agent决策测试
+
 ```python
 def test_agent_decision_making():
 ```
@@ -52,7 +56,9 @@ def test_agent_decision_making():
 ```
 
 ## 9.3 工具调用测试
+
 ### 9.3.1 工具调用正确性
+
 ```python
 class TestToolCalling:
   def test_correct_tool_selection(self, agent):
@@ -103,6 +109,7 @@ Exception('服务不可用')
 ```
 
 ## 9.4 多轮对话测试
+
 ```python
 def test_multi_turn_context():
 ```
@@ -134,6 +141,7 @@ def test_multi_turn_context():
 ```
 
 ## 9.5 Agent安全边界测试
+
 - 权限越界：Agent是否执行了超出授权范围的操作
 - 确认机制：高风险操作(删除/发送/支付)是否有确认步骤
 - 数据泄露：Agent是否在回复中泄露了内部数据或系统信息

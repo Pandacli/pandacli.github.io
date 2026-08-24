@@ -3,11 +3,16 @@ breadcrumbExclude: true
 ---
 
 # 第3章 Python编程基础（测试人员必备）
+
 Python是AI测试的第一语言。如果你之前用的是Java/C#等语言做自动化测试，Python的简洁语法会让你很快上
 手。重点掌握数据处理库和测试框架。
+
 ## 3.1 Python基础语法速览
+
 以下假设你已有其他语言基础，快速过一遍Python的核心语法差异。
+
 ### 3.1.1 变量与数据类型
+
 ```python
 # Python是动态类型语言，不需要声明变量类型
 name = 'AI Tester'        # 字符串
@@ -21,6 +26,7 @@ unique_ids = {1, 2, 3}     # 集合(去重)
 ```
 
 ### 3.1.2 条件与循环
+
 ```python
 # 条件判断
 if accuracy > 0.9:
@@ -31,13 +37,16 @@ else:
   print('模型需要优化')
 
 # 列表推导式(Pythonic写法)
+#类似 java 的流处理 List<Double> passed = scores.stream().filter(s -> s > 0.8).collect(Collectors.toList());
 passed = [s for s in scores if s > 0.8]
 
 # 字典推导式
+# 
 result_map = {k: v > 0.9 for k, v in results.items()}
 ```
 
 ### 3.1.3 函数与类
+
 ```python
 # 函数定义
 def evaluate_model(predictions, labels, threshold=0.5):
@@ -60,7 +69,9 @@ class TestCase:
 ```
 
 ## 3.2 数据处理三件套
+
 ### 3.2.1 NumPy — 数值计算基础
+
 NumPy是Python科学计算的基础库，提供高性能的多维数组操作。在AI测试中，你会频繁使用它来处理模型的输入输出
 数据。
 ```python
@@ -82,6 +93,7 @@ print(f'最大值: {predictions.max()}')
 ```
 
 ### 3.2.2 Pandas — 数据分析利器
+
 Pandas提供DataFrame数据结构，是数据质量检查和测试数据管理的核心工具。
 ```python
 import pandas as pd
@@ -106,6 +118,7 @@ group_stats = df.groupby('category')['score'].agg(
 ```
 
 ### 3.2.3 Matplotlib/Seaborn — 数据可视化
+
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -126,6 +139,7 @@ sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
 ```
 
 ## 3.3 AI测试常用Python库
+
 | 库名 | 用途 | AI测试场景 |
 |---|---|---|
 | scikit-learn | 传统ML算法+评估指标 | 模型指标计算、数据预处理 |
@@ -140,6 +154,7 @@ sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
 | transformers | Hugging Face模型库 | 模型加载与本地评测 |
 
 ## 3.4 pytest测试框架实操
+
 pytest是Python生态最流行的测试框架，也是AI测试用例编写的首选。
 ```python
 # test_model_api.py

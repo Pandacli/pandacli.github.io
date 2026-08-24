@@ -78,7 +78,6 @@ pip install -e .
 
 3. 安装额外依赖（可选）
 
-
 - 推理性能压测
  > pip install '.[pref]'
 - 可视化服务
@@ -93,6 +92,7 @@ pip install -e .
   > pip install '.[rag]'
 - 全部安装
   > pip install '.[all]'
+
 ## 2. 快速上手
 
 ### 2.1 使用命令行评估

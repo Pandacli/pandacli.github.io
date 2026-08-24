@@ -120,7 +120,7 @@ TTS（Text To Speech）负责把模型回复合成音频。它看起来是输出
 
 传统 TTS 分好几步走：
 
-```
+```text
 文本规范化 -> 文本分析 -> 声学模型 -> 声码器 -> 波形输出
 ```
 
@@ -398,7 +398,7 @@ if (isAiSpeakingRef.current) {
 
 ### 整体架构
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │                        前端 (React)                          │
 ├─────────────────────────────────────────────────────────────┤
@@ -776,7 +776,7 @@ WebRTC 经常被笼统地用于指代浏览器音视频能力。语音 Agent 需
 
 interview-guide 的音频通路是：
 
-```
+```text
 getUserMedia → AudioWorklet → Base64 编码 → WebSocket 发送
 ```
 
@@ -786,7 +786,7 @@ getUserMedia → AudioWorklet → Base64 编码 → WebSocket 发送
 
 在语音 Agent 场景下，你主要用到浏览器音频前处理的这些能力：
 
-```
+```text
 麦克风输入
     │
     ▼
@@ -856,7 +856,7 @@ WebRTC 很适合浏览器实时音频，但如果你做的是 App 或硬件方�
 
 ### 方案一：级联式 ASR + LLM + TTS
 
-```
+```text
 音频 -> VAD -> 流式 ASR -> LLM -> 流式 TTS -> 音频
 ```
 
@@ -878,7 +878,7 @@ interview-guide 就是这套方案。它适合的场景：企业知识问答、�
 
 ### 方案二：原生 Realtime Speech-to-Speech
 
-```
+```text
 音频 -> 原生多模态模型 -> 音频
 ```
 

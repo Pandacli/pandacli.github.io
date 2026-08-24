@@ -21,7 +21,7 @@ category:
 
 以Qwen模型 和 Linux + RTX 4060 8GB环境，LoRA+sft训练阶段为例子，帮助开发者迅速浏览和实践本项目会涉及到的常见若干个功能，包括
 
-```
+```text
 1. 前置准备及模型下载
 2. 原始模型加载测试 
 3. 数据集构建
@@ -121,7 +121,7 @@ llamafactory-cli train -h
 
 ## **1.3 模型下载与可用性校验**
 
-### 1.3.1 **模型运行环境评估 llmfit** 
+### 1.3.1 **模型运行环境评估 llmfit**
 
 https://github.com/AlexsJones/llmfit/blob/main/README.zh.md
 
@@ -233,7 +233,6 @@ CUDA_VISIBLE_DEVICES=0 是指定了当前程序使用第0张卡，是指定全�
 另外两个关键参数解释如下，后续的基本所有环节都会继续使用这两个参数
 
 ![...](/assets/images/llama-factory/LLaMA-Factory-guide-010.jpeg)
-
 
 ## 2.2 **使用yaml 存放参数**
 
@@ -360,7 +359,7 @@ sed -i 's/{{author}}/LLaMA Factory/g'  data/identity.json
 }
 ```
 
-## 3.2 **三方数据集-[嬛嬛数据集](https://www.modelscope.cn/datasets/kmno4zx/huanhuan-chat)** 
+## 3.2 **三方数据集-[嬛嬛数据集](https://www.modelscope.cn/datasets/kmno4zx/huanhuan-chat)**
 
 原始格式如下
 
@@ -739,7 +738,8 @@ CUDA_VISIBLE_DEVICES=0 llamafactory-cli eval \
 ```
 
 # 11 **进阶-导出GGUF，部署Ollama**
-```
+
+```text
 GGUF 是 [lllama.cpp](https://github.com/ggerganov/llama.cpp) 设计的大模型存储格式，可以对模型进行高效的压缩，减少模型的大小与内存占用，从而提升模型的推理速度和效率。
 ```
 Ollama框架可以帮助用户快速使用本地的大型语言模型，那如何将LLaMA-Factory项目的训练结果 导出到Ollama中部署呢？需要经过如下几个步骤：
@@ -757,7 +757,7 @@ Ollama框架可以帮助用户快速使用本地的大型语言模型，那如�
 
 ## 11.1 **lora模型合并**
 
-参考上文的第9步，这里笔者合并后的完整模型目录的绝对位置假设为 
+参考上文的第9步，这里笔者合并后的完整模型目录的绝对位置假设为
 
 `/media/tommy/win_documents/code/ai_source/LlamaFactory/exports/tommy_qwen2.5`
 
@@ -867,4 +867,3 @@ ollama run tommy_qwen2.5
 ![...](/assets/images/llama-factory/LLaMA-Factory-guide-034.png)
 
 启动后即可通过交互式完成问答，输入 */bye* 即可退出
-

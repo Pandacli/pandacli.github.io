@@ -1,6 +1,6 @@
 ---
 breadcrumbExclude: true
-title: Easy Dataset × LLaMA Factory 让大模型高效学习领域知识 
+title: Easy Dataset × LLaMA Factory 让大模型高效学习领域知识
 date: 2026-08-06
 tag:
 - ai 大模型微调
@@ -10,6 +10,7 @@ category:
 ---
 
 # 前言准备
+
 > [Easy Dataset](https://github.com/ConardLi/easy-dataset) 是一个专为创建大型语言模型（LLM）微调数据集而设计的应用程序。它提供了直观的界面，用于上传特定领域的文件，智能分割内容，生成问题，并为模型微调生成高质量的训练数据。支持使用 OpenAI、DeepSeek、火山引擎等大模型 API 和 Ollama 本地模型调用。
 
 >[LLaMA Factory](https://github.com/hiyouga/LLaMA-Factory) 是一款开源低代码大模型微调框架，集成了业界最广泛使用的微调技术，支持通过 Web UI 界面零代码微调大模型，目前已经成为开源社区最热门的微调框架之一，GitHub 星标超过 4\.6 万。支持全量微调、LoRA 微调、以及 SFT 和 DPO 等微调算法。
@@ -17,6 +18,7 @@ category:
 本教程使用 Easy Dataset 从五家互联网公司的公开财报构建 SFT 微调数据，并使用 LLaMA Factory 微调 Qwen2\.5\-3B\-Instruct 模型，使微调后的模型能学习到财报数据集中的知识。
 
 ## 运行环境要求
+
 > - GPU 显存：大于等于 12 GB（可使用 autodl\.com 租用云 GPU）
 > - CUDA 版本：高于 11\.6
 > - Python 版本：3\.10
@@ -107,7 +109,7 @@ git clone https://github.com/llm-factory/FinancialData-SecondQuarter-2024.git
 ```
 
 数据均为纯文本数据，如下为节选内容示例。
-```
+```text
 快手二季度净利润增超七成，CEO程一笑强调可灵AI商业化
 
 8月20日，快手科技发布2024年第二季度业绩，总营收同比增长11\.6%至约310亿元，经调整净利润同比增长73\.7%达46\.8亿元左右。该季度，快手的毛利率和经调整净利润率均达到单季新高，分别为55\.3%和15\.1%。值得一提的是，针对今年加码的AI相关业务，快手联合创始人、董事长兼CEO程一笑在财报后的电话会议上表示，可灵AI将寻求更多与B端合作变现的可能性，也会探索将大模型进一步运用到商业化推荐中，提升算法推荐效率。
@@ -116,6 +118,7 @@ git clone https://github.com/llm-factory/FinancialData-SecondQuarter-2024.git
 
 财报显示，线上营销服务、直播和其他服务（含电商）收入依然是拉动快手营收的“三驾马车”，分别占总营收的56\.5%、30\.0%和13\.5%。线上营销服务收入由2023年同期的143亿元增加22\.1%至2024年第二季度的175亿元，财报解释主要是由于优化智能营销解决方案及先进的算法，推动营销客户投放消耗增加。
 ```
+
 ## 1.3 微调数据生成
 
 ### 1.3.1 创建项目并配置参数
@@ -238,7 +241,6 @@ CUDA_VISIBLE_DEVICES=0 USE_MODELSCOPE_HUB=1 llamafactory-cli webui
 
 启动成功后，在控制台可以看到以下信息，在浏览器中输入 http://localhost:7860 进入 Web UI 界面。
 
-
 1. 进入 Web UI 界面后，选择模型为 Qwen2\.5\-3B\-Instruct，模型路径可填写本地绝对路径，不填则从互联网下载
 
 ![image.png](/assets/images/easy-dataset/image17.png)
@@ -291,4 +293,3 @@ CUDA_VISIBLE_DEVICES=0 USE_MODELSCOPE_HUB=1 llamafactory-cli webui
 - Easy Dataset: https://github\.com/ConardLi/easy\-dataset
 
 - LLaMA Factory: https://github\.com/hiyouga/LLaMA\-Factory
-

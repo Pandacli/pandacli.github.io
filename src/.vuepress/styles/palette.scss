@@ -1,1 +1,9 @@
 // you can change colors here
+// 字体体系：跨平台中文字体栈（macOS / Windows / Linux 全覆盖）
+$vp-font: '"PingFang SC", "Hiragino Sans GB", "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", "HarmonyOS Sans SC", "Segoe UI", system-ui, -apple-system, sans-serif';
+$vp-font-heading: '"PingFang SC", "Hiragino Sans GB", "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", "HarmonyOS Sans SC", system-ui, sans-serif';
+$vp-font-mono: '"JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
+
+// 布局：正文内容区宽度（技术文档表格、代码较多，适当加宽以提升阅读体验）
+$content-width: 880px;
+$wide-content-width: 1100px;
