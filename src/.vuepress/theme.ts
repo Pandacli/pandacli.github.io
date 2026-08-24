@@ -14,9 +14,7 @@ export default hopeTheme({
   logo: "/assets/icon/chrome-192.png",
 
   repo: "vuepress-theme-hope/vuepress-theme-hope",
-
   docsDir: "src",
-
   blog: {
     avatar: "/logo.jpg",
 
@@ -123,8 +121,8 @@ export default hopeTheme({
 
   // These features are enabled for demo, only preserve features you need here
   markdown: {
-    math:{
-      type:"katex"
+    math: {
+      type: "katex"
     },
     align: true,
     attrs: true,
@@ -197,8 +195,9 @@ export default hopeTheme({
   },
 
   plugins: {
+    catalog: true,
     blog: true,
-    copyright:{
+    copyright: {
       // 禁用选择
       disableSelection: true,
       // 禁用复制
@@ -218,7 +217,7 @@ export default hopeTheme({
 
     icon: {
       prefix: "fa6-solid:",
-      
+
     },
 
     // install @vuepress/plugin-pwa and uncomment these if you want a PWA

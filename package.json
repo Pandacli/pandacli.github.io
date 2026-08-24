@@ -9,8 +9,11 @@
     "docs:clean-dev": "vuepress-vite dev src --clean-cache",
     "docs:dev": "vuepress-vite dev src",
     "docs:update-package": "npx vp-update",
-    "dev": "vuepress-vite dev src",
+    "dev": "CHOKIDAR_USEPOLLING=true CHOKIDAR_INTERVAL=1000 vuepress-vite dev src",
     "build": "vuepress-vite build src"
+  },
+  "overrides": {
+    "chokidar": "3.6.0"
   },
   "devDependencies": {
     "@mathjax/src": "^4.1.3",

@@ -38,17 +38,17 @@ export const zhNavbar = navbar([
           {
             text:"SQL注入",
             icon:"database",
-            link:"sql_injection",
+            link:"injection-attack",
           },
           {
-            text:"XSS攻击",
+            text:"接口安全",
             icon:"code",
-            link:"xss",
+            link:"interface-security",
           },
           {
-            text:"CSRF攻击",
+            text:"越权防护",
             icon:"code",
-            link:"csrf",
+            link:"authentication-authorization",
           },
         ]
       },
@@ -74,8 +74,8 @@ export const zhNavbar = navbar([
           },
           {
             text: "调优工具",
-            icon: "database",
-            link: "tools/",
+            icon: "toolbox",
+            link: "tools/jdk_tuning_tools",
           },
         ],
       },

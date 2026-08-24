@@ -448,6 +448,7 @@ export const zhSidebar = sidebar({
       prefix: "performance/",
       collapsible: true,
       children: [
+
         {
           text: "Locust Agent 开发",
           link: "Locust_Agent_开发畅想",
@@ -469,6 +470,10 @@ export const zhSidebar = sidebar({
             {
               text: "JVM GC 回收基本原理",
               link: "java-jvm-gc",
+            },
+            {
+              text: "线程分析之 Thread Dump",
+              link: "java-jvm-thread-dump",
             },
           ],
         },
@@ -493,8 +498,8 @@ export const zhSidebar = sidebar({
           collapsible: true,
           children: [
             {
-              text:"jdk自带调优工具",
-              link:"jdk_tuning_tools"
+              text: "Java 问题排查工具",
+              link: "jdk_tuning_tools"
             },
             {
               text: "压测工具 Jmeter 指南",
@@ -506,12 +511,32 @@ export const zhSidebar = sidebar({
             },
           ],
         },
+
       ],
     },
     {
       text: "安全测试",
+      prefix: "security/",
       icon: "shield-halved",
-      link: "security/",
+      collapsible: true,
+      children: [
+        {
+          text: "接口安全",
+          link: "interface-security",
+        },
+        {
+          text: "认证授权",
+          link: "authentication-authorization",
+        },
+        {
+          text: "注入攻击（SQL / XSS / 越权）",
+          link: "injection-attack",
+        },
+        {
+          text: "数据泄露",
+          link: "data-leak",
+        },
+      ]
     },
     {
       text: "单元测试",
