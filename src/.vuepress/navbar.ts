@@ -19,7 +19,21 @@ export const zhNavbar = navbar([
   {
     text: "软件测试基础",
     icon: "vial",
-    link: "/test/",
+    children:[
+      {
+        text:"Bug 大全",
+        icon:"bug",
+        prefix:"/test/bug/",
+        children:[
+          {
+            text:"Java 错误指南",
+            icon:"bug",
+            link:"java_error_guide",
+          },
+          
+        ]
+      },
+    ]
   },
   {
     text: "前端测试",
@@ -88,7 +102,8 @@ export const zhNavbar = navbar([
     link: "/ai/",
   },
   {
-    text: "推荐书籍",
+    text: "面试",
+    icon: "interview",
     link: "/books/",
   },
   {

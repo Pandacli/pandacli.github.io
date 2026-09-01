@@ -6,6 +6,10 @@ import theme from "./theme.js";
 export default defineUserConfig({
   base: "/",
 
+  // dev 服务器固定端口 8090（8080 常被其他本地服务占用）
+  port: 8090,
+  host: "0.0.0.0",
+
   locales: {
     "/": {
       lang: "zh-CN",

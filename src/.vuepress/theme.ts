@@ -198,6 +198,8 @@ export default hopeTheme({
     catalog: true,
     blog: true,
     copyright: {
+      // 全局启用：对所有页面生效（页面显式设置 copy: false 可单独关闭）
+      global: true,
       // 禁用选择
       disableSelection: true,
       // 禁用复制

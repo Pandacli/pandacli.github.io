@@ -376,7 +376,18 @@ export const zhSidebar = sidebar({
     {
       text: "缺陷管理",
       icon: "bug",
-      link: "bug/",
+      prefix: "bug/",
+      collapsible: true,
+      children: [
+        {
+          text: "缺陷管理导学",
+          link: "bug/",
+        },
+        {
+          text: "Java 常见异常与缺陷实战指南",
+          link: "bug/java_error_guide",
+        },
+      ],
     },
   ],
   "/frontend-test/": [
@@ -452,11 +463,8 @@ export const zhSidebar = sidebar({
         {
           text: "Locust Agent 开发",
           link: "Locust_Agent_开发畅想",
-        },
-        {
-          text: "性能测试面试题",
-          link: "性能测试面试题",
-        },
+        }
+       ,
         {
           text: "JVM 调优",
           icon: "microchip",
@@ -504,6 +512,10 @@ export const zhSidebar = sidebar({
             {
               text: "压测工具 Jmeter 指南",
               link: "Jmeter指南",
+            },
+            {
+              text: "基于 AI Skills 的全链路性能测试提效实战指南",
+              link: "ai_jmeter_test",
             },
             {
               text: "压测工具 Locust 业务实战",
@@ -564,6 +576,14 @@ export const zhSidebar = sidebar({
       collapsible: true,
       children: [
         {
+          text: "接口测试",
+          link: "接口测试",
+        },
+        {
+          text: "性能测试面试题",
+          link: "性能测试面试题",
+        },
+        {
           text: "测试基础与测试理论",
           link: "测试基础与测试理论",
         },
@@ -579,10 +599,7 @@ export const zhSidebar = sidebar({
           text: "软技能与开放题",
           link: "软技能与开放题",
         },
-        {
-          text: "接口测试",
-          link: "接口测试",
-        },
+        
         {
           text: "数据库与中间件",
           link: "数据库与中间件",
@@ -603,6 +620,7 @@ export const zhSidebar = sidebar({
           text: "高频测试开发面试题汇总",
           link: "tester",
         },
+         
       ],
     },
   ],

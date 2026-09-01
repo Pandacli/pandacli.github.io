@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>邓家骏 - 测试开发工程师简历</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      color: #333333;
+      background: #f5f5f5;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .page {
+      max-width: 210mm;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 14mm 16mm;
+    }
+
+    /* ---------- 头部 ---------- */
+    .header {
+      border-bottom: 2px solid #003366;
+      padding-bottom: 10px;
+    }
+
+    .header-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #003366;
+      flex-shrink: 0;
+    }
+
+    .header-info {
+      text-align: left;
+    }
+
+    .name {
+      font-size: 26px;
+      font-weight: 700;
+      color: #003366;
+      letter-spacing: 2px;
+    }
+
+    .contact {
+      color: #666666;
+      margin-top: 5px;
+      font-size: 12.5px;
+    }
+
+    .contact a {
+      color: #666666;
+      text-decoration: none;
+    }
+
+    .contact .sep {
+      margin: 0 6px;
+      color: #cccccc;
+    }
+
+    .contact.edu {
+      margin-top: 3px;
+    }
+
+    .summary {
+      margin-top: 8px;
+      font-size: 12.5px;
+      color: #444444;
+      background: #f2f5f9;
+      padding: 8px 12px;
+      border-left: 3px solid #003366;
+      text-align: left;
+    }
+
+    /* ---------- 区块 ---------- */
+    .section {
+      margin-top: 14px;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #003366;
+      border-bottom: 1px solid #d5dce4;
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+
+    .section-title::before {
+      content: "▍";
+      color: #003366;
+    }
+
+    /* ---------- 技能 ---------- */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 10px;
+    }
+
+    .skill-item {
+      width: calc(50% - 5px);
+      margin-bottom: 6px;
+    }
+
+    .skill-item b {
+      color: #003366;
+    }
+
+    .skill-tags {
+      margin-top: 8px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #eef2f7;
+      color: #333333;
+      border: 1px solid #d9e0e8;
+      padding: 1px 8px;
+      border-radius: 10px;
+      font-size: 12px;
+      margin: 0 4px 4px 0;
+    }
+
+    /* ---------- 经历 ---------- */
+    .exp {
+      margin-bottom: 10px;
+    }
+
+    .exp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .exp-company {
+      font-size: 14px;
+      font-weight: 700;
+      color: #222222;
+    }
+
+    .exp-company .role {
+      color: #003366;
+    }
+
+    .exp-date {
+      color: #888888;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .exp ul {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    .exp ul li {
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 3px;
+      text-align: justify;
+    }
+
+    .exp ul li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: #003366;
+      font-size: 11px;
+      top: 1px;
+    }
+
+    .exp ul li b {
+      color: #003366;
+    }
+
+    /* ---------- 荣誉 ---------- */
+    .honor {
+      margin-bottom: 3px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .honor::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: #003366;
+    }
+
+    /* ---------- 打印 ---------- */
+    @media print {
+      body {
+        background: #ffffff;
+        font-size: 11.5px;
+      }
+
+      .page {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+      }
+
+      .exp {
+        page-break-inside: avoid;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .skill-item {
+        width: 100%;
+      }
+
+      .exp-head {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- 头部 -->
+    <div class="header">
+      <div class="header-main">
+        <img class="avatar" src="https://bu.dusays.com/2026/08/27/6a8fa92290afc.png" alt="个人头像">
+        <div class="header-info">
+          <div class="name">邓家骏</div>
+          <div class="contact">
+            测试开发工程师<span class="sep">|</span>广州
+            <span class="sep">|</span>18620485957
+            <span class="sep">|</span>blog：<a href="http://www.pandacli.cn">www.pandacli.cn</a>
+          </div>
+          <div class="contact edu">
+            广州大学软件学院 · 信息工程 · 本科<span class="sep">|</span>2012.09 - 2016.06
+          </div>
+        </div>
+      </div>
+      <div class="summary">
+        软件测试与测试开发工程师,具备优秀的质量分析与根因定位能力，
+        独立开发测试框架能力，将 <b>AI coding与 AI Agents</b> 深度融入测试全流程，独立负责 Web/App 模块功能、性能测试，
+        推动缺陷收敛率提升 <b>30%+</b>，保障项目高质量交付。
+      </div>
+    </div>
+
+    <!-- 专业技能 -->
+    <div class="section">
+      <div class="section-title">专业技能</div>
+      <div class="skills">
+        <div class="skill-item"><b>编程 &AI 赋能测试：</b>Python/Java/JS AI Coding && AI Agent 生成测试脚本代码</div>
+        <div class="skill-item"><b>AI 测评：</b>掌握AI测评方法：使用EasyData/EvalScope/LLM-Factory微调训练评测</div>
+
+        <div class="skill-item"><b>测试全流程：</b>精通 Web/App 全场景测试方案设计（功能、性能、兼容性、稳定性），测试用例设计融入 MVC 分层思想</div>
+        <div class="skill-item"><b>性能测试：</b>JMeter/Locust 压测 + CPU/内存/磁盘/网络监控，独立完成瓶颈定位与调优（SQL 慢查、JVM调优）</div>
+        <div class="skill-item"><b>技术栈：</b>Java（Spring Boot/MyBatis）、Vue+ElementUI、Python、SQL（MySQL
+          含执行流程/慢查)、NoSQL（Redis /MongoDB/InfluxDB）、Shell 脚本</div>
+        <div class="skill-item"><b>协议与工具：</b>HTTP/TCP/MQTT/CAN/ModBus/BACnet/JT808；CANoe、ADB
+          车载测试工具；Kafka中间件；Postman、Fiddler 抓包</div>
+        <div class="skill-item"><b>部署运维 &amp; CI/CD：</b>Docker 容器化与 docker-compose 编排、Jenkins/GitHub CI/CD
+          自动化触发、Linux/Shell</div>
+      </div>
+      <div class="skill-tags">
+        <span class="tag">AI Coding</span><span class="tag">Selenium</span>
+        <span class="tag">JMeter</span><span class="tag">Locust</span><span class="tag">Kafka</span>
+        <span class="tag">Redis</span><span class="tag">Java</span><span class="tag">Spring</span>
+        <span class="tag">UI-Automation</span><span class="tag">Linux</span>
+        <span class="tag">Docker</span><span class="tag">Jenkins</span><span class="tag">GitHub</span><span
+          class="tag">EvalScope</span>
+      </div>
+    </div>
+
+    <!-- 工作经历 -->
+    <div class="section">
+      <div class="section-title">工作经历</div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <span class="exp-company">广东行致互联科技有限公司 <span class="role">· 测试开发工程师</span></span>
+          <span class="exp-date">2026.03 - 至今</span>
+        </div>
+        <ul>
+          <li><b>车联网 App 测试：</b>负责广汽传祺车主 App 全场景 版本测试计划管理，参与需求评审与测试用例设计评审、测试人员任务分派维护，测试覆盖功能场景，保障月版本迭代零重大线上故障</li>
+          <li><b>高并发性能压测：</b>主导车联网 TSP 平台节假日高峰压测，模拟 QPS 高峰流量，定位接口与数据库性能瓶颈并推动优化，核心接口响应从 800ms 压缩至 120ms，连续 2 个节假日高峰零服务降级
+          </li>
+          <li><b>UI-自动化</b>主导App车联车控主流程 ui自动化测试 ，实现脚本编排，测试套件执行，报告输出，工具使用指南培训</li>
+
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <span class="exp-company">星河智联汽车科技有限公司 <span class="role">· 测试开发工程师</span></span>
+          <span class="exp-date">2025.08 - 2026.02</span>
+        </div>
+        <ul>
+          <li><b>智能座舱测试：</b>主导广汽集团智能座舱系统全模块测试，覆盖 VHal/CarAudio 音源仲裁接口自动化测试，保障量产版本缺陷清零</li>
+          <li><b>稳定性工具开发：</b>负责 Android Monkey 工具二次开发，新增场景化脚本注入、ANR/Crash 异常捕获、可视化报告输出，座舱稳定性测试覆盖率</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <span class="exp-company">广州卓勤信息科技有限公司 <span class="role">· Java 开发 &amp; 测试工程师</span></span>
+          <span class="exp-date">2022.12 - 2025.07</span>
+        </div>
+        <ul>
+          <li><b>智慧园区IOT-Gateway开发测试：</b>负责智慧园区数字底座 IOT 网关的研发，覆盖惠州东江、华南、雄安三个大型园区，对接 15+ 类 IOT
+            子系统API、SDK功能，验证数据采集、设备控制、告警推送全链路，前后端联调接口通过率 100%</li>
+          <li><b>接口自动化框架：</b>搭建接口自动化测试框架，覆盖 80%+ 核心业务接口，回归测试时间从 2 天缩短至 4 小时，累计发现并推动修复 120+ 潜在生产隐患</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <span class="exp-company">Avery Dennison（艾利丹尼森）<span class="role">· 自动化测试工程师</span></span>
+          <span class="exp-date">2019.08 - 2022.10</span>
+        </div>
+        <ul>
+          <li><b>MES 端到端测试：</b>负责全球多品牌热敏/服装标签 MES 系统端到端测试，服务 Walmart、Nike、Adidas 等 6 大国际客户，建立六阶段数据验证模型，生产文件缺陷率降低 15%，QC
+            质量提升 20%</li>
+          <li><b>自动化工具开发：</b>自研 Python+Selenium 标签报告自动化工具，替代人工邮件审批校验流程，单份测试报告生成从 30 分钟压缩至 2 分钟，月度节省 90+ 人工工时，获 2020
+            Q1&amp;Q3 Quality Star</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <span class="exp-company">广州数娱信息科技有限公司 <span class="role">· 初级测试工程师</span></span>
+          <span class="exp-date">2016.06 - 2019.07</span>
+        </div>
+        <ul>
+          <li><b>全链路质量保障：</b>主导微信娃娃机项目全流程测试，覆盖微信支付投币、营销系统、商家 SaaS 后台、硬件通讯协议核心模块，版本发布前 P0 缺陷清零，设备出奖稳定性提升 25%，玩家投诉率降低 40%
+          </li>
+          <li><b>测试体系建设：</b>制定测试用例标准与出厂质检规范，优化设备抽检流程，产品出厂合格率从 82% 提升至 99%，售后退换货率下降 60%</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 项目经历 -->
+    <div class="section">
+      <div class="section-title">项目经历</div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <span class="exp-company">广汽传祺 / 埃安 / 昊铂车联网 TSP 平台测试</span>
+          <span class="exp-date">2026.03 - 至今</span>
+        </div>
+        <ul>
+          <li><b>OTA 全链路测试：</b>面向三大品牌百万级车主，覆盖车主 App（Android/iOS/Harmony 三端）、TSP 云后台、车机 X9E 平台、TBOX 通讯四大模块；OTA 升级覆盖 2
+            种安装状态、3 条消息路径、2 套 UI 逻辑，发现 8+ 兼容性问题，升级成功率 99.7%</li>
+          <li><b>节假日性能压测：</b>设计清明/五一高峰压测方案，编写 18 个 JMeter/Locust 脚本覆盖 12 个核心接口，定位慢查询、线程池配置等瓶颈，核心接口响应从 800ms 优化至 120ms
+          </li>
+          <li><b>UI 自动化落地：</b>使用 Midscene 实现 Android 端 UI 自动化，一套脚本跨平台复用，三端回归测试从 6 小时缩短至 45 分钟，自动化覆盖率达 70%+</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <span class="exp-company">T88M / AH8 / T60Y3 广汽智能座舱系统测试</span>
+          <span class="exp-date">2025.08 - 2026.02</span>
+        </div>
+        <ul>
+          <li><b>稳定性工具二次开发：</b>扩展原生 Android Monkey，新增座舱场景化脚本注入、分级事件权重、故障自动捕获、HTML 可视化报告，适配车载特殊交互场景</li>
+          <li><b>CarAudio 自动化框架：</b>设计并实现音源仲裁接口自动化测试框架，覆盖多音源切换、音量控制、优先级覆盖等 92% 仲裁场景，替代 70% 人工重复测试</li>
+          <li><b>版本交付体系：</b>设计全子系统集成点检用例集与 HMI6.0 仪表冒烟用例，搭建版本审查 Checklist 与缺陷追踪机制，集成点检效率提升 40%，量产前 P0 问题 100% 清零</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <span class="exp-company">中国联通北京雄安智慧园区项目</span>
+          <span class="exp-date">2025.01 - 2025.05</span>
+        </div>
+        <ul>
+          <li><b>全系统对接验证：</b>负责 15+ 子系统端到端测试（楼宇自控、消防报警、安防监控、公共广播等），验证数据采集、设备控制、告警推送全链路，联调通过率 100%，0 遗留联调问题</li>
+          <li><b>消防双链路专项：</b>设计 ModBus-RTU 与 TCP 双通道并行验证策略，对 4 台消防主机逐一验证报警数据一致性，发现并修复 1 处 TCP 通道恢复消息丢失问题</li>
+          <li><b>广播全场景测试：</b>设计 6 层广播测试用例矩阵，验证三级优先级嵌套恢复机制，编写的 30+ API 测试数据 JSON 文档成为团队标准测试基准</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <span class="exp-company">华南联通 &amp; 惠州智慧东江智慧园区 IOT 数字底座</span>
+          <span class="exp-date">2022.12 - 2024.12</span>
+        </div>
+        <ul>
+          <li><b>数据监控：</b>接入 Prometheus 监控 服务器和 Spring Boot 应用指标，关注接口耗时、错误率、消息堆积、消费者消费速率等指标。</li>
+          <li><b>多协议融合测试：</b>参与 Netty Server 解码器架构开发与测试，整合 6 种工业协议（HJ212/JT808/ModBus-RTU/BACnet/MQTT 等），设备在线率从 82% 提升至
+            99.8%，解码器新增协议开发效率从 5 人天缩短至 1 人天</li>
+          <li><b>性能优化验证：</b>验证 ThreadPoolExecutor 线程池 Ack 监听与 Kafka 消息推送优化效果，设备离线通知延迟从 30 秒压缩至 500ms 内，停车场 LED 动态发布耗时从 5
+            分钟/屏缩短至 5 秒内</li>
+          <li><b>自动化测试落地：</b>搭建接口自动化测试体系，覆盖 80%+ 核心业务接口，回归测试时间从 2 天缩短至 4 小时</li>
+        </ul>
+      </div>
+    </div>
+
+
+
+  </div>
+</body>
+
+</html>
