@@ -1,6 +1,7 @@
 ---
 breadcrumbExclude: true
-title: 一个语言模型的文件包里到底有什么
+title: 探秘AI大脑：一个语言模型的文件包里到底有什么？
+author: tommy
 date: 2026-08-05
 tag:
  - AI模型
@@ -8,28 +9,45 @@ category:
  - AI测评
 ---
 
-# 探秘AI大脑：一个语言模型的文件包里到底有什么？
 
-# 前言
+## 前言
+
+为什么你要知道这些？
+
+- 如果你想下载并使用一个开源模型（比如Llama、Qwen、DeepSeek），看到这一堆文件别慌——只要保留
+  `.safetensors`、`.json 配置`、`tokenizer`、`vocab.json`、`merges.txt`和`LICENSE`，其他可以删。
+
+- 如果你想自己微调模型，就主要动那几个分片（但需要强大的显卡）。
+
+- 如果你只是想聊个天，根本不用打开这个文件夹，用现成的API或者界面就好。
+
+最后记住：这些文件加在一起，就是一个会思考、能对话的数字大脑。虽然它只是一堆二进制数字，但通过巧妙的数学运算，它就能像模像样地和你聊天、写诗、解数学题。
 
 大模型下载地址：https://www.modelscope.cn/models
 
 当你和ChatGPT、Claude这样的AI聊天时，它的大脑——也就是那个巨大的“模型文件”。—> 在电脑里长什么样？我们就用一个真实的模型文件夹为例，像拆开一个神奇的锦囊一样，看看里面那些文件都藏着什么秘密。
 - `Qwen 2.5B 大模型` 文件结构参考图
 
-## 模型介绍
+## 1.模型介绍
 
 - [Deepseek Qwen 7B 大模型介绍](https://www.modelscope.cn/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/summary)
 - [Qwen 2.5B 大模型介绍](https://www.modelscope.cn/models/Qwen/Qwen2.5-1.5B-Instruct)
-![image\.png](/assets/images/ai-brain/ai-brain_1.png)
 
-# 1 先看“身份证”和“说明书”
+
+### 1.1 先看“身份证”和“说明书”
 
 大模型文件具体简单介绍，一般模型都有说明书。在下载前应当先浏览查阅该说明书
 https://www.modelscope.cn/models/Qwen/Qwen2.5-1.5B-Instruct
-  ![image\.png](/assets/images/ai-brain/ai-brain_2.png)
 
-## 1.1 config.json
+
+- 下载后的文件内容
+ ![image\.png](/assets/images/ai-brain/ai-brain_1.png)
+- 文件说明
+
+ ![image\.png](/assets/images/ai-brain/ai-brain_2.png)
+
+
+### 1.2 config.json
 
 ```json
 {
@@ -90,7 +108,7 @@ https://www.modelscope.cn/models/Qwen/Qwen2.5-1.5B-Instruct
   - bos_token_id / eos_token_id: 151643 / 151645 — 起止 token ID
   - use_cache: true — 启用 KV cache 加速自回归生成
 
-# 2 真正的大脑——“权重weights文件” safetensors
+## 2 真正的大脑——“权重weights文件” safetensors
 
 > Safetensors is **a modern, open\-source file format developed by Hugging Face specifically for storing machine learning model weights \(tensors\)**
 
@@ -128,7 +146,7 @@ AI的大脑由几十亿个“数字小旋钮”组成（专业叫`“参数” p
 
 ---
 
-## 2.1 `tokenizer_config.json`
+### 2.1 `tokenizer_config.json`
 
 作用：存储分词器的`运行时配置参数`，控制其行为（如填充、截断、特殊 token 的对应字符串）。
 
@@ -151,7 +169,7 @@ AI的大脑由几十亿个“数字小旋钮”组成（专业叫`“参数” p
 
 ---
 
-## 2.2 模型加载使用示例（HuggingFace Transformers）
+### 2.2 模型加载使用示例（HuggingFace Transformers）
 
 ```Python
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -188,7 +206,7 @@ generated_ids = [
 response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 ```
 
-## 2.3 总结
+### 2.3 总结
 
 - `tokenizer.json`：分词器的“硬数据”（词表、合并规则），决定文本如何被切分为 token。
 
@@ -196,7 +214,7 @@ response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
 两个文件缺一不可，共同保证模型在推理或微调时与训练时的分词逻辑完全一致。
 
-# 3. 几个奇怪的小文件（可能是个人习惯或缓存）
+## 3. 几个奇怪的小文件（可能是个人习惯或缓存）
 
 - `mdl`：只有49字节，可能是某个脚本的链接或标记。
 
@@ -206,22 +224,12 @@ response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
 不用管它们——不是模型运行必需的，可能是模型下载或转换过程中留下的“小纸屑”。
 
-# 为什么你要知道这些？
 
-- 如果你想下载并使用一个开源模型（比如Llama、Qwen、DeepSeek），看到这一堆文件别慌——只要保留
-  `.safetensors`、`.json 配置`、`tokenizer`、`vocab.json`、`merges.txt`和`LICENSE`，其他可以删。
-
-- 如果你想自己微调模型，就主要动那几个分片（但需要强大的显卡）。
-
-- 如果你只是想聊个天，根本不用打开这个文件夹，用现成的API或者界面就好。
-
-最后记住：这些文件加在一起，就是一个会思考、能对话的数字大脑。虽然它只是一堆二进制数字，但通过巧妙的数学运算，它就能像模像样地和你聊天、写诗、解数学题。
-
-# 4. 模型类型分析实战：以 Qwen2.5-1.5B-Instruct 为例
+## 4. 模型类型分析实战：以 Qwen2.5-1.5B-Instruct 为例
 
 基于[机器基本理论](机器基本理论.md)判断框架，我们对 [Qwen2.5-1.5B-Instruct](https://www.modelscope.cn/models/Qwen/Qwen2.5-1.5B-Instruct) 进行全面分析。
 
-## 4.1 模型基本信息
+### 4.1 模型基本信息
 
 | 属性 | 值 |
 |---|---|
@@ -241,9 +249,9 @@ response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 | 许可证 | Apache 2.0 |
 | 任务标签 | text-generation（文本生成）、chat |
 
-## 4.2 四维判断
+### 4.2 四维判断
 
-### 4.2.1 看输出 → 递归模型
+#### 4.2.1 看输出 → 递归模型
 
 Qwen2.5-1.5B-Instruct 的输出是**自然语言文本序列**——给定一个对话提示，模型逐 token 自回归生成回复文本。
 
@@ -258,7 +266,7 @@ Qwen2.5-1.5B-Instruct 的输出是**自然语言文本序列**——给定一个
 
 > 结论：输出是文本序列 → **递归模型**
 
-### 4.2.2 看训练数据 → 监督学习
+#### 4.2.2 看训练数据 → 监督学习
 
 Qwen2.5-1.5B-Instruct 的训练分为两个阶段：
 
@@ -275,7 +283,7 @@ Qwen2.5-1.5B-Instruct 的训练分为两个阶段：
 
 > 结论：训练数据混合了自监督预训练 + 监督微调 → **监督学习**
 
-### 4.2.3 看核心算法 → Transformer（递归模型）
+#### 4.2.3 看核心算法 → Transformer（递归模型）
 
 从 `config.json` 和 README 中提取的架构信息：
 
@@ -313,7 +321,7 @@ Qwen2.5-1.5B-Instruct 的训练分为两个阶段：
 
 > 结论：核心算法是 Transformer Decoder → **递归模型**
 
-### 4.2.4 看评估指标 → 递归模型（NLP 方向）
+#### 4.2.4 看评估指标 → 递归模型（NLP 方向）
 
 Qwen2.5 官方评估采用的指标包括：
 
@@ -333,7 +341,7 @@ Qwen2.5 官方评估采用的指标包括：
 
 > 结论：核心评估指标为 Perplexity + NLP 基准测试 → **递归模型（NLP 方向）**
 
-## 4.3 综合判定
+### 4.3 综合判定
 
 按照第 3.5 节的快速判断流程图：
 
@@ -359,7 +367,7 @@ Qwen2.5 官方评估采用的指标包括：
 
 > **一句话总结**：Qwen2.5-1.5B-Instruct 是一个基于 **Transformer Decoder** 架构的**自回归语言模型**，在机器学习分类体系中归属于**递归模型（Recursive Model）**，采用监督学习方式训练，输出自然语言文本序列，主要评估指标为困惑度（Perplexity）和下游 NLP 基准测试准确率。
 
-## 4.4 与博客分析框架的对应关系
+### 4.4 与博客分析框架的对应关系
 
 对照博客《探秘AI大脑》中 `config.json` 的分析框架：
 

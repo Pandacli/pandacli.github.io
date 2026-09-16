@@ -7,7 +7,7 @@ export const zhNavbar = navbar([
     link: "/",
   },
   {
-    text:"Python编程与开发",
+    text:"Python编程",
     icon:"",
     link:"/python/"
   },
@@ -17,16 +17,15 @@ export const zhNavbar = navbar([
     link: "/ai-test/",
   },
   {
-    text: "软件测试基础",
+    text: "Bug wiki",
     icon: "vial",
     children:[
       {
         text:"Bug 大全",
-        icon:"bug",
         prefix:"/test/bug/",
         children:[
           {
-            text:"Java 错误指南",
+            text:"Java后端常见异常指南",
             icon:"bug",
             link:"java_error_guide",
           },

@@ -9,7 +9,7 @@ tag:
   - 书籍推荐
   - 测试书籍
   - 开发书籍
-  - AI 书籍
+  - AI书籍
 sitemap:
   changefreq: weekly
   priority: 0.8

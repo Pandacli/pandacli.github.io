@@ -2,8 +2,15 @@ import { defineUserConfig } from "vuepress";
 import { viteBundler } from "@vuepress/bundler-vite";
 
 import theme from "./theme.js";
-
+import {docsearchPlugin} from "@vuepress/plugin-docsearch"
 export default defineUserConfig({
+  //插件配置
+  plugins: [
+    docsearchPlugin({
+      // 选项
+    }),
+  ],
+
   base: "/",
 
   // dev 服务器固定端口 8090（8080 常被其他本地服务占用）
@@ -40,4 +47,5 @@ export default defineUserConfig({
 
   // Enable it with pwa
   // shouldPrefetch: false,
+
 });

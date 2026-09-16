@@ -18,7 +18,7 @@ export const zhSidebar = sidebar({
           link: "AI与机器学习基础",
         },
         {
-          text: "Python编程基础（测试人员必备）",
+          text: "Python编程基础",
           link: "Python编程基础（测试人员必备）",
         },
         {
@@ -32,7 +32,7 @@ export const zhSidebar = sidebar({
       ],
     },
     {
-      text: "核心测试",
+      text: "核心测试类型",
       icon: "flask",
       prefix: "core/",
       collapsible: true,
@@ -96,7 +96,7 @@ export const zhSidebar = sidebar({
       ],
     },
     {
-      text: "测试设计",
+      text: "AI测试设计",
       icon: "pen-ruler",
       prefix: "system_design/",
       collapsible: true,
