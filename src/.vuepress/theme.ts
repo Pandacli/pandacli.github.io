@@ -4,7 +4,7 @@ import { enNavbar, zhNavbar } from "./navbar.js";
 import { enSidebar, zhSidebar } from "./sidebar/index.js";
 
 export default hopeTheme({
-  hostname: "https://mister-hope.github.io",
+  hostname: "https://pandacli.cn",
 
   author: {
     name: "Tommy",
@@ -195,6 +195,13 @@ export default hopeTheme({
   },
 
   plugins: {
+    // Algolia DocSearch：需先到 https://docsearch.algolia.com/apply 申请，
+    // 审批通过后会拿到 App ID / Search-Only API Key / Index Name，替换下面的占位值
+    docsearch: {
+      appId: "YOUR_APP_ID",
+      apiKey: "YOUR_SEARCH_ONLY_API_KEY",
+      indexName: "YOUR_INDEX_NAME",
+    },
     catalog: true,
     blog: true,
     copyright: {
