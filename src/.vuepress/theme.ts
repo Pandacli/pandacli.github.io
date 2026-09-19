@@ -1,7 +1,7 @@
 import { hopeTheme } from "vuepress-theme-hope";
 
-import { enNavbar, zhNavbar } from "./navbar.js";
-import { enSidebar, zhSidebar } from "./sidebar/index.js";
+import { zhNavbar } from "./navbar.js";
+import { zhSidebar } from "./sidebar/index.js";
 
 export default hopeTheme({
   hostname: "https://pandacli.cn",
@@ -80,27 +80,6 @@ export default hopeTheme({
       },
     },
 
-    /** English locale config */
-    "/en/": {
-      // navbar
-      navbar: enNavbar,
-
-      // sidebar
-      sidebar: enSidebar,
-
-      footer: "Default footer",
-
-      displayFooter: true,
-
-      blog: {
-        description: "A FrontEnd programmer",
-        intro: "/en/intro.html",
-      },
-
-      metaLocales: {
-        editLink: "Edit this page on GitHub",
-      },
-    },
   },
 
   encrypt: {
@@ -195,12 +174,59 @@ export default hopeTheme({
   },
 
   plugins: {
-    // Algolia DocSearch：需先到 https://docsearch.algolia.com/apply 申请，
-    // 审批通过后会拿到 App ID / Search-Only API Key / Index Name，替换下面的占位值
+    // Algolia DocSearch
+    // 参考 https://ecosystem.vuejs.press/zh/plugins/search/docsearch.html
+    // 注意：站点必须能被 Algolia 云端爬虫访问，否则会出现 trouble crawling
     docsearch: {
-      appId: "YOUR_APP_ID",
-      apiKey: "YOUR_SEARCH_ONLY_API_KEY",
-      indexName: "YOUR_INDEX_NAME",
+      // Algolia 应用 ID（必填）
+      appId: "DDCR4ED2EQ",
+      // Search-Only API Key（必填，可公开，仅用于查询）
+      apiKey: "5a48a9539b31c4b2977ddfcc4f77756e",
+      // 用于关键词搜索的索引列表（必填）
+      // 元素可为字符串，或 { name, searchParameters } 对象以指定该索引的搜索参数，
+      // 例如：indices: [{ name: "pandacli", searchParameters: { facetFilters: ["lang:zh-CN"] } }]
+      indices: ["pandacli"],
+      // 每组显示的最大结果数（默认 5）
+      maxResultsPerGroup: 5,
+
+      // 按语言环境覆盖上述选项（key 对应 config.ts 中 locales 的路径前缀）
+      locales: {
+        "/": {
+          placeholder: "搜索文档",
+          translations: {
+            button: {
+              buttonText: "搜索",
+              buttonAriaLabel: "搜索",
+            },
+            modal: {
+              startScreen: {
+                recentSearchesTitle: "最近搜索",
+                noRecentSearchesText: "暂无搜索记录",
+              },
+              noResultsScreen: {
+                noResultsText: "没有找到相关结果",
+                suggestedQueryText: "你可以尝试搜索",
+                reportMissingResultsText: "你认为应该有该结果？",
+                reportMissingResultsLinkText: "点击反馈",
+              },
+              errorScreen: {
+                titleText: "无法获取结果",
+                helpText: "请检查你的网络连接",
+              },
+              footer: {
+                selectText: "选择",
+                selectKeyAriaLabel: "Enter 键",
+                navigateText: "切换",
+                navigateUpKeyAriaLabel: "向上方向键",
+                navigateDownKeyAriaLabel: "向下方向键",
+                closeText: "关闭",
+                closeKeyAriaLabel: "Esc 键",
+              },
+            },
+          },
+        },
+
+      },
     },
     catalog: true,
     blog: true,
